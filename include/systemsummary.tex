@@ -84,7 +84,7 @@
 			The return losses at the RF- and LO-ports are simulated and found to be very similar as those simulated for the individual components. The results are listed in the chip summary but for detailed frequency characteristics see \autoref{fig:mixermatch} for the RF-port and \autoref{fig:lo_reflections} for the LO-port. The IF-port's return loss depends on the gain setting and is found to be at least \unit[21]{dB} in all cases with a \unit[100]{MHz} bandwidth.
 			
 		\subsection{Conversion gain}
-			The chip's conversion gain is simulated for all gain states in \autoref{fig:sysgainstates} and for different LO drives in \autoref{fig:sysgainvslo}.
+			The chip's conversion gain is simulated for all gain states in \autoref{fig:sysgainstates} and for different LO drives in \autoref{fig:sysgainvslo}. The IF-signal has a narrow bandwidth. Even so, the \unit[20]{MHz} on the MMIC that it does occupy, exhibits a frequency dependent gain according to \autoref{fig:ifbehave}. This plot is also interesting, should the frequency characteristics in the IF-path shift.
 			
 			\begin{figure}[hbt!]
 				\centering
@@ -97,8 +97,6 @@
 				\includerect{0.8\textwidth}{fig/summary/gainvslo}
 				\caption[Chip gain for different LO drives.]{Chip gain versus frequency for different LO drives at nominal gain. The gain variation is kept below \unit[0.6]{dB} between \unit[2.9 and 3.4]{GHz} for $P_{lo}$=\unit[-4 to 0]{dBm}.}\label{fig:sysgainvslo}
 			\end{figure}
-			
-			The IF-signal has a narrow bandwidth. Even so, the \unit[20]{MHz} on the MMIC that it does occupy exhibits a frequency dependent gain according to \autoref{fig:ifbehave}. This plot is also interesting, should the frequency characteristics in the IF-path shift.
 			
 			\begin{figure}[hbt!]
 				\centering
@@ -122,12 +120,12 @@
 			\end{figure}
 			
 		\subsection{Spectrum and spurious frequencies}
-			The frequency spectrum from \unit[0 to 10]{GHz} at the output IF port is shown in \autoref{fig:sysspectrum}.
+			The frequency spectrum from \unit[0 to 10]{GHz} at the output IF port is shown in \autoref{fig:sysspectrum}. The LO isolation is \unit[21]{dB}, which is just above the required level of \unit[20]{dB}. The 2$\times$IF-signal suppression is \unit[38]{dBc}, which is \unit[2]{dB} below the required value. The RF-signal has only \unit[7.6]{dB} isolation.
 			
 			\begin{figure}[hbt!]
 				\centering
 				\includerect{1.0\textwidth}{fig/summary/spectrum}
-				\caption[IF-port output spectrum.]{Frequency spectrum at the output IF-port for input frequency \unit[3.2]{GHz}, $P_{lo}=\unit[-2]{dBm}$ and nominal gain. Noteworthy components are: IF (\unit[2.14]{GHz}), RF (\unit[3.2]{GHz}), LO (\unit[5.34]{GHz}), 2$\times$IF (\unit[4.28]{GHz}), RF-IF (\unit[1.06]{GHz}) and RF+IF (\unit[8.54]{GHz}). The LO isolation is \unit[21]{dB}, which is just above the required level of \unit[20]{dB}. The 2$\times$IF-signal suppression is \unit[38]{dBc}, which is \unit[2]{dB} below the required value. The RF-signal has only \unit[7.6]{dB} isolation. Some of the smaller components are spurious frequencies predicted in \autoref{tab:introsingletone}.}\label{fig:sysspectrum}
+				\caption[IF-port output spectrum.]{Frequency spectrum at the output IF-port for input frequency \unit[3.2]{GHz}, $P_{lo}=\unit[-2]{dBm}$ and nominal gain. Noteworthy components are: IF (\unit[2.14]{GHz}), RF (\unit[3.2]{GHz}), LO (\unit[5.34]{GHz}), 2$\times$IF (\unit[4.28]{GHz}), RF-IF (\unit[1.06]{GHz}) and RF+IF (\unit[8.54]{GHz}). Some of the smaller components are spurious frequencies predicted in \autoref{tab:introsingletone}.}\label{fig:sysspectrum}
 			\end{figure}
 			
 
