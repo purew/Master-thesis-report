@@ -23,15 +23,15 @@
 				pos = hbt! ]
 			{ l l l l }
 			{\tnote[*]{An internal parameter affecting the FET's pinch-off voltage and thus the current $i_{ds}$.}}
-			{
-				Component & Parameter & Spread \\\hline
+			{	\toprule
+				Component & Parameter & Spread \\\midrule
 				FET transistor & $dV_t$\tmark[*] & $\pm$\unit[0.2]{V} \\
 				GaAs substrate & Height & $\pm$\unit[10]{\mum} \\
 				Spiral inductor & Inductance & $\pm$\unit[5]{\%} \\
 				MIM capacitor & Capacitance & $\pm$\unit[5.6]{\%} \\
 				TaN resistor & Resistance & $\pm$\unit[3.6]{\%} \\
 				GaAs resistor & Resistance & $\pm$\unit[6]{\%} \\
-				TiWSi resistor & Resistance & $\pm$\unit[8]{\%} \\\hline
+				TiWSi resistor & Resistance & $\pm$\unit[8]{\%} \\\bottomrule
 			}
 			
 		While all final results stated in the report are calculated using electromagnetic (EM) simulations, the yield calculations are performed on the electric models. This is because yield analysis with EM simulations would be too computationally intensive. However, the results from the electric models can be very far from the EM results. The yield analysis should therefore be regarded as a measure of how the result can vary due to process spread and not as the actual result.
@@ -45,13 +45,13 @@
 			\caption[Amplifier LO performance with spread.]{Amplifier LO typical performance with spread at $P_{LO}=\unit[-2]{dBm}$.}
 			\label{tab:lo_spread}
 			\centering
-			\begin{tabular}{ l l }
-				Parameter & Performance \\\hline
+			\begin{tabular}{ l l } \toprule
+				Parameter & Performance \\\midrule
 				Delivered Power & $\unit[5\pm2]{dB}$ \\
 				Return Loss Input & $\unit[15\pm2 ]{dB}$ \\
 				Stability & $K>1$ \\
 				%$P_{1dB}$ (Input) & $\unit[\pm ]{dBm}$ \\
-				Power Consumption &  $\unit[100\pm 5]{mW}$
+				Power Consumption &  $\unit[100\pm 5]{mW}$ \\\bottomrule
 			\end{tabular}
 		\end{table}		
 		
@@ -94,14 +94,14 @@
 			\caption[Amplifier IF1 performance with spread.]{Amplifier IF1 typical performance with spread.}
 			\label{tab:yieldif1}
 			\centering
-			\begin{tabular}{ l l }
-				Parameter & Performance \\\hline
+			\begin{tabular}{ l l } \toprule
+				Parameter & Performance \\\midrule
 				Gain & $\unit[11.5\pm 0.75]{dB}$ \\
 				Return Loss Input & $\unit[14.4\pm 5]{dB}$ \\
 				Return Loss Output & $\unit[16.9\pm 1.5]{dB}$ \\
 				Stability & $K>1$ \\
 				$P_{1dB}$ (Input) & $\unit[6.2\pm 1]{dBm}$ \\
-				Power Consumption &  $\unit[290\pm 40]{mW}$
+				Power Consumption &  $\unit[290\pm 40]{mW}$ \\\bottomrule
 			\end{tabular}
 		\end{table}
 		
@@ -183,14 +183,14 @@
 			\caption[Amplifier IF2 performance with spread.]{Amplifier IF2 typical performance with spread.}
 			\label{tab:yieldif2}
 			\centering
-			\begin{tabular}{ l l }
-				Parameter & Performance \\\hline
+			\begin{tabular}{ l l } \toprule
+				Parameter & Performance \\\midrule
 				Gain & $\unit[12.1\pm 0.5]{dB}$ \\
 				Return Loss Input & $\unit[25.5\pm 6]{dB}$ \\
 				Return Loss Output & $\unit[19.7\pm 3]{dB}$ \\
 				Stability & $K>1$ \\
 				$P_{1dB}$ (Input) & $\unit[10.4\pm 1]{dBm}$ \\
-				Power Consumption &  $\unit[550\pm 70]{mW}$
+				Power Consumption &  $\unit[550\pm 70]{mW}$ \\\bottomrule
 			\end{tabular}
 		\end{table}
 		
@@ -273,14 +273,14 @@
 			\caption[Mixer performance with spread.]{Typical mixer performance with spread at input power \unit[-2]{dBm}.}
 			\label{tab:yieldmixer}
 			\centering
-			\begin{tabular}{ l l l l }
-				Parameter & Performance & Performance & Unit \\\hline
-				Band & 2.9--3.4 & 3.1--3.3 & GHz \\\hline
+			\begin{tabular}{ l l l l } \toprule
+				Parameter & Performance & Performance & Unit \\\midrule
+				Band & 2.9--3.4 & 3.1--3.3 & GHz \\\midrule
 				Conversion loss & $7.7\pm 0.8$ & $7.5\pm 0.8$ & dB \\
 				Gain variation & $0.45\pm 0.4$ & $0.05\pm 0.3$ & dB \\
 				Return loss input & $16\pm 3$ & $21\pm 5$ & dB \\
 				Return loss output (@\unit[2.14]{GHz}) & $16\pm 2$ & $16\pm 2$ & dB \\
-				$P_{1dB}$ (input) & $13\pm 0$ & $13\pm 0.5$ & dBm \\
+				$P_{1dB}$ (input) & $13\pm 0$ & $13\pm 0.5$ & dBm \\\bottomrule
 			\end{tabular}
 		\end{table}
 		
@@ -303,9 +303,7 @@
 		
 		
 	\section{Chip}
-		Yield analysis of chip conversion gain in \autoref{fig:yield_chip_gain}. 
-		
-		
+		Yield analysis of chip conversion gain is shown in \autoref{fig:yield_chip_gain}. 
 		
 			\begin{figure}[hbt!]
 				\centering

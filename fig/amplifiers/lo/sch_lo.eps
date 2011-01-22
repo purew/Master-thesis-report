@@ -1,10 +1,10 @@
 %!PS-Adobe-3.0 EPSF-3.0
-%%Title: sch_lo.eps
+%%Title: sch_lo_labeled.eps
 %%Creator: XCircuit v3.6 rev135
-%%CreationDate: Wed Jan  5 08:32:47 2011
+%%CreationDate: Sat Jan 22 12:22:00 2011
 %%Pages: 1
-%%BoundingBox: 68 68 521 248
-%%DocumentNeededResources: font Helvetica Times-Roman 
+%%BoundingBox: 68 68 473 248
+%%DocumentNeededResources: font Helvetica Times-Roman Symbol 
 %%EndComments
 %%BeginProlog
 %
@@ -247,15 +247,16 @@ endgate
 
 %%EndSetup
 
-%%Page: 1 1
+%%Page: sch_lo.eps 1
 %%PageOrientation: Portrait
 /pgsave save def bop
+% 32.00 4.00 gridspace
 1.0000 inchscale
-2.6000 setlinewidth 928 288 translate
+2.6000 setlinewidth 800 288 translate
 
 1.000 0 -416 64 analog::inductor
 1.000 90 -352 128 analog::inductor
-1.000 0 -592 128 generic::tap
+1.000 0 -560 128 generic::tap
 1 1.000 -464 128 -416 128 2 polygon
 1 1.000 -528 128 -544 128 2 polygon
 1.000 0 -416 0 analog::gnd
@@ -268,7 +269,7 @@ endgate
 1.000 0 64 32 analog::resistor
 1.000 90 128 208 analog::capacitor
 1 1.000 64 208 -240 208 -240 192 3 polygon
-1.000 90 -176 272 analog::resistor
+1.000 90 -172 272 analog::resistor
 1.000 90 -272 272 analog::capacitor
 1 1.000 -336 272 -416 272 -416 128 3 polygon
 1 1.000 -112 272 -80 272 -80 208 3 polygon
@@ -278,14 +279,29 @@ endgate
 1.000 0 192 144 analog::inductor
 1.000 0 192 80 analog::gnd
 1.000 180 336 208 generic::tap
-(INPUT) {/Helvetica cf} 2 16 0 1.000 -736 112 label
+(IN) {/Helvetica cf} 2 16 0 1.000 -608 112 label
 (OUT) {/Helvetica cf} 2 16 0 1.000 368 192 label
 1.000 270 64 -48 generic::tap
 1.000 90 -480 128 analog::capacitor
+(4.0 pF) {/Helvetica cf} 2 16 0 1.000 -532 168 label
+(1.7 nH) {/Helvetica cf} 2 16 0 1.000 -400 32 label
+(1.0 pF) {/Helvetica cf} 2 16 0 1.000 -388 284 label
+(W) {/Symbol cf} (500 ) {/Helvetica cf} 4 16 0 1.000 -224 292 label
+(6.0 pF) {/Helvetica cf} 2 16 0 1.000 -236 -40 label
+(W) {/Symbol cf} (25 ) {/Helvetica cf} 4 16 0 1.000 -212 84 label
+(2.8 nH) {/Helvetica cf} 2 16 0 1.000 -76 132 label
+(1.0 nH) {/Helvetica cf} 2 16 0 1.000 -400 156 label
+(4.0 nH) {/Helvetica cf} 2 16 0 1.000 212 132 label
+(2.2 nH) {/Helvetica cf} 2 16 0 1.000 216 228 label
+(W) {/Symbol cf} (160 ) {/Helvetica cf} 4 16 0 1.000 -60 24 label
+(2.3 pF) {/Helvetica cf} 2 16 0 1.000 8 224 label
+(0.65 pF) {/Helvetica cf} 2 16 0 1.000 112 288 label
 (V) {/Helvetica cf} 2 16 0 1.000 48 -96 label
-1.000 0 -544 64 analog::resistor
-1.000 0 -544 0 analog::gnd
-1 1.000 -544 128 -576 128 2 polygon
+(m) {/Helvetica 0.800 cf} (m) {/Symbol 0.800 cf} (4x50 ) {/Helvetica 0.800 cf} 
+{/Helvetica cf} 7 16 0 1.000 -268 128 label
+1.000 0 -524 64 analog::resistor
+1.000 0 -524 0 analog::gnd
+(W) {/Symbol cf} (300 ) {/Helvetica cf} 4 16 0 1.000 -596 -8 label
 pgsave restore showpage
 
 %%Trailer
