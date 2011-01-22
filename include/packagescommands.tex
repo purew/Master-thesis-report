@@ -1,0 +1,155 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% When making a high-res pdf for printing, use
+% the following define. Changes resolution and colour
+% of hyperlinks.
+
+\def\printable{true}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% If the following define is commented,
+% not all packages will be used, resulting in
+% a faster compile.
+
+\def\generatefull{true}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mandatory packages
+
+% Modern font encoding
+\usepackage[utf8]{inputenc}
+
+% Really good for quoting text's, source code, etc
+\usepackage{listings}
+% For multiple rows within tables
+\usepackage{multirow}
+% For good-looking figures side by side
+\usepackage{subfig}
+
+\usepackage{units}
+
+% Nice math output
+\usepackage{amsmath}
+
+\usepackage{MnSymbol}
+
+\usepackage{ctable}
+
+% Custom toc-depth for different parts of the document
+\usepackage{tocvsec2}
+
+%\usepackage{txfonts} % Screws up all the equations, using upgreek for straight \mu:s instead
+\usepackage{upgreek}
+
+% Packages that are not crucial may be put in here to speed things up.
+% (Ie, packages dealing only with aesthetics
+\ifdefined\generatefull
+	% Not sure what this does
+	\usepackage{ae}
+	% Adjusts textblocks in subtle ways (looks better)
+	\usepackage{microtype}		
+	% Included in the cls-file or not 'yet' needed
+	%\usepackage{lipsum}
+	%\usepackage[T1]{fontenc}
+
+
+	% Nice captions
+	\usepackage{caption}
+	\captionsetup{margin=10pt,font=small,labelfont=bf}
+	\captionsetup[table]{position=top}
+
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeXDraw
+%\usepackage[usenames,dvipsnames]{pstricks}
+%\usepackage{epsfig}
+%\usepackage{pst-grad} % For gradients
+%\usepackage{pst-plot} % For axes
+% Doesn't work. Using .eps instead.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	pdflatex setup
+% 	Use with:
+%		pdflatex --shell-escape filename
+
+%\usepackage[pdftex]{color,graphicx} % Already in class-file for logo
+\usepackage{epstopdf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% Check if we are building for the web or for printing
+\ifdefined\printable
+	\def \backref {false}
+	\usepackage[res300]{optional}
+\else
+	% Printable was not defined, therefore:
+	%	Set settings according to the web
+	\def \backref {true}
+	\usepackage[res72]{optional}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Biblatex will soon be the standard citations-package
+\usepackage[
+%		sorting=nyt, %previous
+		sorting=none,
+		hyperref=auto,
+	%	style=authoryear-icomp-tt, % Special style to avoid broken authoryear
+%		style=authoryear, %previous
+		style=numeric-comp,
+%		citestyle=authoryear,
+		doi=false,
+		isbn=false,
+		bibstyle=numeric,
+%		autocite=footnote, %previous
+		autocite=plain,
+		backref=\backref
+	]{biblatex}
+
+\bibliography{references}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hyperref
+\usepackage[pdfauthor={Richard Abrahamsson, Anders Bennehag},%
+pdftitle={S-band Multi-function Down-converter GaAs MMIC},%
+pdftex]{hyperref}
+% Hypcap makes hyperlinks really point to the picture,
+% not to the caption below
+\usepackage[all]{hypcap} 
+
+\definecolor{black}{rgb}{0.0,0.0,0.0}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.5}
+\ifdefined\printable
+	% Make links black (better for printing)
+	\hypersetup{pdftex,colorlinks,breaklinks,
+		linkcolor=black,urlcolor=black,
+		anchorcolor=black,citecolor=black}
+\else
+	% Printable was not defined, therefore: Set settings according to the web
+	\hypersetup{pdftex,colorlinks,breaklinks,
+		linkcolor=darkblue,urlcolor=darkblue,
+		anchorcolor=darkblue,citecolor=darkblue}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Custom commands
+\newcommand{\includerect}[2]{\includegraphics[trim=50 60 40 60, clip, width=#1]{#2}}
+\newcommand{\includesmith}[2]{\includegraphics[trim=60 40 60 50, clip, width=#1]{#2}}
+\newcommand{\mum}{$\upmu$m}
+\newcommand{\disclaimer}{ Temperature at \unit[25]{$^\circ$C} and no parameter spread applied.}
+\newcommand{\scalemum}{ Dimensions in \mum.}
+\newcommand{\nf}{\emph{NF}}
+
+\usepackage{ifthen}
+ 
+\newcommand{\newevenside}{
+	\ifthenelse{\isodd{\thepage}}{\newpage}{
+	\newpage
+        \phantom{placeholder} % doesn't appear on page
+	\thispagestyle{empty} % if want no header/footer
+	\newpage
+	}
+}

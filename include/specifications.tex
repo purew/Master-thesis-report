@@ -1,0 +1,70 @@
+\chapter{Design Specifications}\label{app:specs}
+	
+%	\begin{table}[hbt!]
+%	\caption[Full MMIC specfication.]{Specification of the MMIC's features.}
+%	\label{tab:fullspec}
+%	\centering
+%	\begin{tabular}{ l l l }
+%		Parameters & Requirements & Comments \\\hline
+%		\multirow{2}{*}{Radio frequency (RF) range} & \multirow{2}{*}{\unit[3.1--3.3]{GHz}} & Investigate: \\
+%		& & \unit[2.9--3.4]{GHz} \\
+%		Temperature range & \unit[-40--+85]{$^\circ C$}/ &	\\
+%		\ \ (function/performance)& \unit[-40--+55]{$^\circ C$} & \\
+%		Intermediate frequency (IF) & \unit[2.14]{GHz} & \\
+%		Local oscillator (LO) range & RF+IF & \\
+%		LO input power & \unit[-5--0]{dBm} & \\
+%		Nominal gain & \unit[8--10]{dB}	& \\
+%		Gain variation over frequency	& $\le \unit[0.6]{dB}$ &  \\
+%		\multirow{2}{*}{Gain control}	& $\ge \unit[\pm 5]{dB}$ & \unit[3 or 4]{bits} \\
+%		& LSB:  $\le \unit[2]{dB}$ & \\
+%		Noise figure (nominal gain) & $\le \unit[15]{dB}$ & Target: $\le \unit[12]{dB}$ \\
+%		Return loss (all gain states) & $\ge \unit[15]{dB}$ & \\
+%		Input third intercept point (IIP3)	& $\ge \unit[15]{dBm}$ & Target: $\ge \unit[17]{dBm}$\\
+%		LO to IF isolation & $>\unit[20]{dB}$ & \\
+%		Image rejection & $>\unit[30]{dB}$ & \\
+%		RF+LO product (@RF=\unit[-10]{dBm}) & $<\unit[-40]{dBc}$ & \\
+%		Other mixing spurs (@RF=\unit[-10]{dBm}) & $<\unit[-40]{dBc}$ & \\
+%		Max input power RF & \unit[17]{dBm}	& Survival \\
+%		Bias & \unit[+5]{V}	& Single bias \\
+%		Power consumption & $\le \unit[1.5]{W}$	& Target: $\le \unit[1.0]{W}$\\
+%		Control signals & \unit[2.5--3.3]{V} & Parallel interface \\
+%		\multirow{2}{*}{Package} & Plastic mold QFN & \\
+%		& (\unit[4$\times$4, 4$\times$5 or 5$\times$5]{mm}) &
+%	\end{tabular}
+%	\end{table}
+	
+	\ctable[ caption = Specification of the MMIC's features.,
+		label = tab:fullspec,
+		pos = hbt! ]
+	{ l l l }
+	{\tnote[*]{Least significant bit}
+	 \tnote[$\dagger$]{Quad flat no leads}
+	}
+	{	\toprule
+		Parameter & Requirement & Comment \\\midrule
+		%\multirow{2}{*}{Radio frequency (RF) range} & \multirow{2}{*}{\unit[3.1--3.3]{GHz}} & Investigate: \\
+		%& & \unit[2.9--3.4]{GHz} \\
+		Radio frequency (RF) range & \unit[3.1--3.3]{GHz} & Study: \unit[2.9--3.4]{GHz} \\
+		Temperature range & \unit[-40--+85]{$^\circ$C}/ &	\\
+		\ \ (function/performance)& \unit[-40--+55]{$^\circ$C} & \\
+		Intermediate frequency (IF) & \unit[2.14]{GHz} & \\
+		Local oscillator (LO) range & RF+IF & \\
+		LO input power & \unit[-5--0]{dBm} & \\
+		Nominal gain & \unit[8--10]{dB}	& \\
+		Gain variation over frequency	& $\le \unit[0.6]{dB}$ &  \\
+		\multirow{2}{*}{Gain control}	& $\ge \unit[\pm 5]{dB}$ & \unit[3 or 4]{bits} \\
+		& LSB:\tmark[*]  $\le \unit[2]{dB}$ & \\
+		Noise figure (nominal gain) & $\le \unit[15]{dB}$ & Target: $\le \unit[12]{dB}$ \\
+		Return loss (all gain states) & $\ge \unit[15]{dB}$ & \\
+		$IIP_3$ (nominal gain)	& $\ge \unit[15]{dBm}$ & Target: $\ge \unit[17]{dBm}$\\
+		LO to IF isolation & $>\unit[20]{dB}$ & \\
+		Image rejection & $>\unit[30]{dB}$ & \\
+		RF+LO product (@RF=\unit[-10]{dBm}) & $<$\unit[-40]{dBc} & \\
+		Other mixing spurs (@RF=\unit[-10]{dBm}) & $<$\unit[-40]{dBc} & \\
+		Max input power RF & \unit[17]{dBm}	& Survival \\
+		Bias & \unit[+5]{V}	& Single bias \\
+		Power consumption & $\le \unit[1.5]{W}$	& Target: $\le \unit[1.0]{W}$\\
+		Control signals & \unit[2.5--3.3]{V} & Parallel interface \\
+		\multirow{2}{*}{Package} & Plastic mold QFN\tmark[$\dagger$] & \\
+		& (\unit[4$\times$4, 4$\times$5 or 5$\times$5]{mm}) & \\\bottomrule
+	}
