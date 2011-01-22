@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:latexdraw="http://latexdraw.sourceforge.net/namespaces/latexdraw"
+    version="1.1" baseProfile="full">
+    <defs/>
+    <g>
+        <g latexdraw:type="joinedLines" id="id227">
+            <polyline
+                points="310.0,290.0 315.0,280.0 325.0,300.0 335.0,280.0 345.0,300.0 355.0,280.0 365.0,300.0 375.0,280.0 380.0,290.0 "
+                stroke-width="2.0" stroke="black" fill="none" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="text" id="id230"
+            font-family="Times New Roman" fill="black" font-size="18" latexdraw:x="340.0">
+            <text x="340.0" y="260.0"><![CDATA[R]]></text>
+        </g>
+        <g latexdraw:type="drawing" id="id232">
+            <g latexdraw:type="line" id="id233">
+                <line x1="410.0" x2="410.0" y1="290.0"
+                    y2="272.76119402985074" stroke-width="2.0"
+                    stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+            <g latexdraw:type="line" id="id234">
+                <line x1="400.0" x2="450.0" y1="272.76119402985074"
+                    y2="272.76119402985074" stroke-width="2.0"
+                    stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+            <g latexdraw:type="line" id="id235">
+                <line x1="440.0" x2="440.0" y1="272.76119402985074"
+                    y2="290.0" stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+        </g>
+        <g latexdraw:type="text" id="id237"
+            font-family="Times New Roman" fill="black" font-size="18" latexdraw:x="410.0">
+            <text x="410.0" y="260.0"><![CDATA[Fet]]></text>
+        </g>
+        <g latexdraw:type="drawing" id="id239">
+            <g latexdraw:type="arc" id="id240">
+                <path
+                    d="M 209.9830220658666 295.7134772412317 A 15.0 15.0 0.0 1 0 180.0441827174763 296.150447483271 "
+                    stroke-width="2.0" stroke="black" fill="none" latexdraw:rotationAngle="0.0"/>
+            </g>
+            <g latexdraw:type="arc" id="id244">
+                <path
+                    d="M 239.9830220658666 295.7134772412317 A 15.0 15.0 0.0 1 0 210.0441827174763 296.150447483271 "
+                    stroke-width="2.0" stroke="black" fill="none" latexdraw:rotationAngle="0.0"/>
+            </g>
+            <g latexdraw:type="arc" id="id248">
+                <path
+                    d="M 269.9830220658666 295.7134772412317 A 14.999999999999986 14.999999999999986 0.0 1 0 240.04418271747628 296.150447483271 "
+                    stroke-width="2.0" stroke="black" fill="none" latexdraw:rotationAngle="0.0"/>
+            </g>
+        </g>
+        <g latexdraw:type="text" id="id253"
+            font-family="Times New Roman" fill="black" font-size="18" latexdraw:x="220.0">
+            <text x="220.0" y="260.0"><![CDATA[L]]></text>
+        </g>
+        <g latexdraw:type="drawing" id="id255">
+            <g latexdraw:type="line" id="id256">
+                <line x1="90.0" x2="110.0" y1="300.0" y2="300.0"
+                    stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+            <g latexdraw:type="line" id="id257">
+                <line x1="110.0" x2="110.0" y1="280.0" y2="320.0"
+                    stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+            <g latexdraw:type="line" id="id258">
+                <line x1="120.0" x2="120.0" y1="280.0" y2="320.0"
+                    stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+            <g latexdraw:type="line" id="id259">
+                <line x1="120.0" x2="140.0" y1="300.0" y2="300.0"
+                    stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+        </g>
+        <g latexdraw:type="text" id="id261"
+            font-family="Times New Roman" fill="black" font-size="18" latexdraw:x="110.0">
+            <text x="110.0" y="260.0"><![CDATA[C]]></text>
+        </g>
+        <g latexdraw:type="drawing" id="id263">
+            <g latexdraw:type="line" id="id264">
+                <line x1="270.0" x2="270.0" y1="150.0" y2="170.0"
+                    stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+            <g latexdraw:type="line" id="id265">
+                <line x1="250.0" x2="290.0" y1="170.0" y2="170.0"
+                    stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+            <g latexdraw:type="line" id="id266">
+                <line x1="260.0" x2="280.0" y1="177.0" y2="177.0"
+                    stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+            <g latexdraw:type="line" id="id267">
+                <line x1="267.0" x2="273.0" y1="183.0" y2="183.0"
+                    stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+        </g>
+        <g latexdraw:type="drawing" id="id269">
+            <g latexdraw:type="line" id="id270">
+                <line x1="200.0" x2="180.0" y1="170.0" y2="150.0"
+                    stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+            <g latexdraw:type="line" id="id271">
+                <line x1="180.0" x2="180.0" y1="150.0" y2="190.0"
+                    stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+            <g latexdraw:type="line" id="id272">
+                <line x1="180.0" x2="200.0" y1="190.0" y2="170.0"
+                    stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+        </g>
+    </g>
+    <metadata>
+        <latexdraw:metadata>
+            <latexdraw:displayBorders>false</latexdraw:displayBorders>
+            <latexdraw:autoAdjust>true</latexdraw:autoAdjust>
+            <latexdraw:ppc>50</latexdraw:ppc>
+            <latexdraw:zoom>3.75</latexdraw:zoom>
+            <latexdraw:unit>cm</latexdraw:unit>
+            <latexdraw:classicGrid>false</latexdraw:classicGrid>
+            <latexdraw:gridGap>10</latexdraw:gridGap>
+            <latexdraw:code>0</latexdraw:code>
+            <latexdraw:displayGrid>true</latexdraw:displayGrid>
+            <latexdraw:magneticGrid>true</latexdraw:magneticGrid>
+            <latexdraw:autoUpdate>false</latexdraw:autoUpdate>
+            <latexdraw:version>2.0.8</latexdraw:version>
+            <latexdraw:size>
+                <latexdraw:width>1608</latexdraw:width>
+                <latexdraw:height>1178</latexdraw:height>
+            </latexdraw:size>
+            <latexdraw:position>
+                <latexdraw:x>-4</latexdraw:x>
+                <latexdraw:y>-4</latexdraw:y>
+            </latexdraw:position>
+            <latexdraw:dividerPosition>0.7916666666666666</latexdraw:dividerPosition>
+            <latexdraw:displayCodePanel>true</latexdraw:displayCodePanel>
+            <latexdraw:displayXScale>true</latexdraw:displayXScale>
+            <latexdraw:displayYScale>true</latexdraw:displayYScale>
+            <latexdraw:delimitorOpacity>130</latexdraw:delimitorOpacity>
+        </latexdraw:metadata>
+    </metadata>
+</svg>

@@ -1,0 +1,75 @@
+% Compile with:
+%		pdflatex --shell-escape filename
+%\documentclass[10pt,a4paper]{scrartcl}
+%\documentclass[10pt,a4paper]{report}
+%\documentclass[english,twoside,notitlepage,draft]{reportsaab} % No figures - fast
+\documentclass[english,twoside,notitlepage]{reportsaab}
+
+
+
+\usepackage[english,swedish]{babel}
+
+% Optional resolution usage:
+%\opt{res300}{\includegraphics[width=200pt]{fig/introduction/300/figur}}
+%\opt{res72}{\includegraphics[width=200pt]{fig/introduction/72/figur}}
+
+% Include packages and commands
+\input{include/packagescommands}
+
+% Add Contents to pdf-bookmarks
+\addtocontents{toc}{\protect{\pdfbookmark[0]{\contentsname}{toc}}}
+
+% Set a proper header separation
+\addtolength{\headsep}{20pt}
+\begin{document}
+
+	% Title page, abstract and foreword
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	\input{include/titlepageabstract}
+
+	% Table of contents
+	\newpage
+	%\pagestyle{fancy}
+	%\setspecialhdr
+	\tableofcontents
+	%\newpage
+	%\listoffigures
+	%\newpage
+	%\listoftables
+	
+	% Main body 
+	\newpage
+	%\setdefaulthdr
+	
+	\settocdepth{section}
+	\input{include/introduction}
+	\input{include/systemdesign}
+	\input{include/mixer}
+	\input{include/amplifiers}
+	\input{include/vargain}
+	\settocdepth{subsection}
+	\input{include/systemsummary}
+	\settocdepth{chapter}
+
+	% References
+	\newpage
+	\clearpage
+	\addcontentsline{toc}{chapter}{\numberline{}Bibliography}
+	% Not cited references
+	% Ref 1...
+	\printbibliography
+	%\nocite{collin}
+
+%	\newpage
+	% Start of appended chapters
+	\appendix
+	\input{include/glossary}
+	\input{include/specifications}
+	\input{include/process}
+	\input{include/mixercomp}
+	\input{include/schematics}
+	\input{include/emsim}
+	\input{include/yield}
+	
+\end{document}
