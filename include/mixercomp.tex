@@ -1,6 +1,6 @@
 \chapter{Singly Balanced Versus Single-ended FET Mixer}\label{sec:endvsbal}
 	\section{Introduction}
-		This topic is not easily covered and strict limitations are made to only consider the circumstances in this project. Both a single-balanced and a single-ended FET resistive mixer are implemented using ideal components to form a groundwork to decide which mixer topology is the best choice. The main focus is the linearity ($IIP_3$) of the mixers. From the implementations the single-ended mixer is eventually selected. This is due to its simplicity and sufficient performance.
+		This topic is not easily covered and strict limitations are made to only consider the circumstances in this project. Both a single-balanced and a single-ended FET resistive mixer are implemented using ideal components to form groundwork to decide which mixer topology is the best choice. The main focus is the linearity ($IIP_3$) of the mixers. From the implementations the single-ended mixer is eventually selected. This is due to its simplicity and sufficient performance.
 		
 	\section{Single-ended mixer}
 		A single-ended cold FET mixer is the simplest version of a FET mixer possible. It is simply a FET with the LO connected to the gate and the RF and IF connected to the drain. Besides the FET there is need for a bias network and for a diplexer to separate the two signals on the drain.
@@ -14,9 +14,9 @@
 			The ideal implementation of a balanced mixer uses perfect 180$^\circ$ baluns, with the ability to control the loss and the phase imbalance. The two NCF FETs required in a balanced setup are both biased with $v_{gs}=\unit[-1]{V}$, just as the unbalanced mixer. No filters are used.
 
 		\subsection{Baluns}
-			The purpose of baluns is to convert an unbalanced signal (a single signal in reference to ground) into its balanced counterparts (in which there are two signals, usually described as positive and negative) or vice versa. As such, they are usually three-ports, receiving a signal relative ground on one port and outputs the balanced signal on the two remaining ports.
+			The purpose of baluns is to convert an unbalanced signal (a single signal in reference to ground) into its balanced counterparts (in which there are two signals, usually described as positive and negative) or vice versa. As such, they are usually three-ports, receiving a signal relative ground on one port and output the balanced signal on the two remaining ports.
 	
-			Baluns can be either active, lumped or distributed. Because of the size of distributed baluns at these frequencies, they are not considered for this project. Active baluns use FETs and have gain.
+			Baluns can be active, lumped or distributed. Because of the size of distributed baluns at these frequencies, they are not considered for this project. Active baluns use FETs and have gain.
 	
 			The layout and performance of an implemented lumped element balun is shown in \autoref{fig:balun_lumped}.\autocite{kuylenstierna04} The construction is quite simple, but the bandwidth is not large enough for the LO-signal. The amplitude difference is rather large as $f_{LO}$ increases, which impacts on the performance of a balanced mixer.
 	

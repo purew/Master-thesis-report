@@ -1,6 +1,6 @@
 \chapter{Yield Analysis}\label{sec:yield_analysis}
 	\section{Introduction}
-		All components on the GaAs wafer have parameter spread. That is, the performance of both the passive and active structures have an uncertainty interval.\autocite{pph25manual} The uncertainty is due to minor variations within the wafer and to larger variations between wafers. Yield analysis is performed to estimate the possible impact that these variations can cause. The analysis randomly varies parameters in the design according to their specifications (\autoref{tab:yieldparameters}). Of interest are especially gain and stability of amplifiers as well as the frequency characteristics of sensitive filters.
+		All components on the GaAs wafer have parameter spread. That is, the performance of both the passive and active structures has an uncertainty interval.\autocite{pph25manual} The uncertainty is due to minor variations within the wafer and to larger variations between wafers. Yield analysis is performed to estimate the possible impact that these variations can cause. The analysis randomly varies parameters in the design according to their specifications (\autoref{tab:yieldparameters}). Of interest are especially gain and stability of amplifiers as well as the frequency characteristics of sensitive filters.
 		
 %		\begin{table}[hbt!]
 %			\caption[Parameter spread intervals.]{Different components spread parameters. The values are spread uniformly.}
@@ -294,7 +294,7 @@
 				\includerect{0.5\textwidth}{fig/yield/convgainyield}
 				\label{fig:yieldconvgain}
 			}\\
-			\subfloat[][Yield analysis of the diplexer. The red (single) lines are the EM simulations and the blue (broad) lines correspond to the spread analysed with the circuit model. The curves marked with triangles $\triangle$ details the bandpass filter between the RF input and the mixer-FET's drain. The curves marked with squares $\medsquare$ details the low-pass filter between the mixer-FET's drain and the IF output.]{
+			\subfloat[][Yield analysis of the diplexer. The red (single) lines are the EM simulations and the blue (broad) lines correspond to the spread analysed with the circuit model. The curves marked with triangles $\triangle$ details the band-pass filter between the RF input and the mixer-FET's drain. The curves marked with squares $\medsquare$ details the low-pass filter between the mixer-FET's drain and the IF output.]{
 				\includerect{1.0\textwidth}{fig/yield/diplexer}
 				\label{fig:yielddiplexer}
 			}

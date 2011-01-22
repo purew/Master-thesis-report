@@ -28,18 +28,18 @@
 		%To perform analogue-to-digital conversion with today's technology, the frequency should preferably be at least one order of magnitude smaller than the carrier frequency (radio frequency or RF) of a radar which transmits/receives at \unit[3]{GHz}. In this thesis work the first in a chain of necessary down-converters will be designed on a GaAs MMIC.
 
 	\section{Design specifics}
-		As previously mentioned there is a need for a custom, very small, mixing circuit. Implementation as an integrated circuit is clearly beneficial because of the small size. In \autoref{app:specs} the full specification of the MMIC is listed. Most important are the demands on linearity, noise and gain. The gain is set to \unit[$\sim$10]{dB} with a \unit[$\pm$5]{dB} dynamic gain range. This means that the gain is variable and that the chip needs amplifiers and some means of controlling the gain. The linearity, measured using the input third-order intercept point, should be at least \unit[15]{dBm} at nominal gain. The noise figure should for nominal gain be less than \unit[15]{dB}. These quantities are explained later on in this chapter.
+		As previously mentioned there is a need for a custom, very small, mixing circuit. Implementation as an integrated circuit is clearly beneficial because of the small size. In \autoref{app:specs} the full specification of the MMIC is listed. Most important are the demands on linearity, noise and gain. The gain is set to \unit[$\sim$10]{dB} with a \unit[$\pm$5]{dB} dynamic gain range. This means that the gain is variable and that the chip needs amplifiers and some means of controlling the gain. The linearity, measured using the input third-order intercept point, should be at least \unit[15]{dBm} at nominal gain. The noise figure should, for nominal gain, be less than \unit[15]{dB}. These quantities are explained later on in this chapter.
 
 
 	\section{GaAs monolithic microwave integrated \\circuit}
 		\subsection{Properties}
 
-		MMICs offers miniaturization of electric circuits and can be constructed with different materials having different properties. Gallium arsenide (GaAs) has been used as a semiconductor material since the 70's. When it was introduced, it was a minor revolution; the high electron mobility permitted frequencies in excess of \unit[200]{GHz} and greater breakdown voltages increased the power levels. GaAs circuits are less sensitive to heat compared to ordinary silicon semiconductor materials and offers good noise-performance.\autocite{robertson95} %page 10
+		MMICs offer miniaturisation of electric circuits and can be constructed with different materials having different properties. Gallium arsenide (GaAs) has been used as a semiconductor material since the 70's. When it was introduced, it was a minor revolution; the high electron mobility permitted frequencies in excess of \unit[200]{GHz} and greater breakdown voltages increased the power levels. GaAs circuits are less sensitive to heat compared to ordinary silicon semiconductor materials and offers good noise-performance.\autocite{robertson95} %page 10
 
 		\subsection{HEMT-technology}
 			The active components of MMICs are usually FETs and different processes offer different kinds of FETs.	The High Electron Mobility Transistor-, or HEMT-technology uses the quantum well created in the conduction band in the interaction between two semiconductors. The electrons in the well form a two-dimensional electron gas that can be used to form the channel region of the FET.\autocite{mimura80} The two semiconductor-materials usually must have the same lattice constants.
 
-			Pseudomorphic HEMTs, or pHEMTs, have a very thin second layer which allows that layer to "stretch" over the first layer. This avoids the requirement of having the same lattice constant, allowing for greater band gap differences which gives greater power handling capabilities.
+			Pseudomorphic HEMTs, or pHEMTs, have a very thin second layer which allows that layer to "stretch" over the first layer. This circumvents the requirement of having the same lattice constant, allowing for greater band gap difference, which gives greater power handling capabilities.
 
 		\subsection{Foundry process}
 			Foundry processes differ, both in the size of components and in the performance features, such as power capability, noise, etc. The size of a process usually refers to the gate length in its active device.
@@ -49,7 +49,7 @@
 			An evaluation is conducted to compare the MMIC performance for the two UMS processes. The results are found in \autoref{sec:processval} and they are based on the designs detailed in the report. From this comparison, PPH25 is chosen.
 
 	\section{Circuit simulations}
-		This project governs the design of the MMIC and does not include measurements made on an actual chip. All results documented are thus simulated results. The simulations are initially based on mathematical models of UMS' components. However, as the design matures the accuracy of these models becomes insufficient. Full electromagnetic (EM) simulations are therefore performed on all passive structures on the chip. The results in the report are all calculated using EM-simulations. More information on specifics regarding EM-simulations are found in \autoref{app:emsim}.
+		This project governs the design of the MMIC and does not include measurements made on an actual chip. All results documented are thus simulated results. The simulations are initially based on mathematical models of UMS' components. However, as the design matures the accuracy of these models becomes insufficient. Full electromagnetic (EM) simulations are therefore performed on all passive structures on the chip. The results in the report are all calculated using EM-simulations. More information on specifics regarding EM-simulations is found in \autoref{app:emsim}.
 
 	\section{Mixer principles}\label{ch:introduction_mixer}
 		\subsection{Mixing}
@@ -93,7 +93,7 @@
 
 	\section{Intermodulation products}
 		\subsection{Linearity and intermodulation}
-			The operation of a mixer, or downconverter, should be as linear as possible. Linearity in the mixer ensures as few unwanted signals as possible arise from the mixing procedure. The frequencies of these spurious signals are calculated in the same manner as the downconverted intermediate frequency:\autocite{bahl03}
+			The operation of a mixer, or down-converter, should be as linear as possible. Linearity in the mixer ensures as few unwanted signals as possible arise from the mixing procedure. The frequencies of these spurious signals are calculated in the same manner as the down converted intermediate frequency:\autocite{bahl03}
 
 			\begin{equation}\label{eq:spurs}
 				f_{mix} = |k_1f_1\pm k_2f_2 \pm ... \pm k_nf_n|
@@ -186,18 +186,18 @@
 				I_T=\left ( \frac{1}{G_2I_1} + \frac{1}{I_2} \right )^{-1}
 			\end{equation}
 
-			$I_1$, $I_2$ and $I_T$ are the $IIP_3$ for the first component, second component and the two together, respectively. $G_2$ is the gain of the second device in the cascade. It is here evident that the order of the components are important for the total linearity.
+			$I_1$, $I_2$ and $I_T$ are the $IIP_3$ for the first component, second component and the two together, respectively. $G_2$ is the gain of the second device in the cascade. It is here evident that the order of the components is important for the total linearity.
 
 		\subsection{Linearity simulations}
 			In order to simulate a mixer's $IIP_3$ a three-tone setup is required (LO and two input RF tones). Necessary simulation accuracy for all three tones and their mixing products is very high, too high for the simulation software Microwave Office to handle. In contrast to the simpler two-tone setup required for calculating $IIP_3$ in an amplifier, the result becomes unreliable.
 
-			The theory that results in the rule of thumb $IIP_3=P_{1dB}+\unit[10]{dBm}$ is based on a power series expansion of the transfer characteristics. A simplification to the calculations is made to only consider the first three terms. This approximation has been empirically shown to work well with amplifiers. In mixers, there are however much more harmonics present and they cannot be as easily discarded. A quick look at different papers and commercial mixers show that $IIP_3$ can be anything from \unit[6]{dBm} to \unit[14]{dBm} higher than $P_{1dB}$.
+			The theory that results in the rule of thumb $IIP_3=P_{1dB}+\unit[10]{dBm}$ is based on a power series expansion of the transfer characteristics. A simplification to the calculations is made to only consider the first three terms. This approximation has been empirically shown to work well with amplifiers. In mixers, there is however many more harmonics present and they cannot be as easily discarded. A quick look at different papers and commercial mixers show that $IIP_3$ can be anything from \unit[6]{dBm} to \unit[14]{dBm} higher than $P_{1dB}$.
 
 			This means that neither an estimate of $IIP_3$ from $P_{1dB}$ nor a simulation of $IIP_3$ directly are reliable methods for the mixer. The two combined gives the best hint available to a correct $IIP_3$ value.
 
 	\section{Noise}
 		\subsection{Noise sources}\label{sec:noise_thermal}
-			Thermal noise arise due to collisions between electrons. As temperature increases, the particles will move faster and collide more often, thus increasing the thermal noise. The mean-square thermal noise voltage generated in a resistance $R$ over a bandwidth $\Delta f$ is\autocite{bahl03}
+			Thermal noise arises due to collisions between electrons. As temperature increases, the particles will move faster and collide more often, thus increasing the thermal noise. The mean-square thermal noise voltage generated in a resistance $R$ over a bandwidth $\Delta f$ is\autocite{bahl03}
 
 			\begin{equation}
 				< v^2_\text{thermal} > = 4k_BTR\Delta f
@@ -205,7 +205,7 @@
 
 			This type of noise is introduced in passive, resistive components such as resistors and inductors.
 
-			A second type of noise present in active structures such as the FETs is shot noise. Shot noise occurs when there are not enough electrons to successfully approximate the current as continuous. The statistical variations in the electron's speed result in the sum of all electrons having variations as well. The mean-square shot noise voltage for a current $i$ which flows through resistance $R$ is given by
+			A second type of noise present in active structures such as the FETs is shot noise. Shot noise occurs when there are not enough electrons to successfully approximate the current as continuous. The statistical variations in the electron's speed result in the sum of all electrons having variations as well. The mean-square shot noise voltage for a current $i$, in a resistance $R$, is given by
 			\begin{equation}
 				< v^2_\text{shot} > = 2q_eiR^2\Delta f
 			\end{equation}
@@ -233,7 +233,7 @@
 			\end{figure}
 
 		\subsection{Noise figure}
-			The noise figure, or $\nf$, measures how much noise a subcircuit introduces. Introducing noise is inevitable and in order to minimize the noise, it is important to amplify the signal as early as possible and thereby raising the signal higher above the background noise. Otherwise, every subsequent attenuation of the signal will raise the noise figure just as much. $\nf$ is defined as
+			The noise figure, or $\nf$, measures how much noise a sub circuit introduces. Introducing noise is inevitable and in order to minimize the noise, it is important to amplify the signal as early as possible and thereby raising the signal higher above the background noise. Otherwise, every subsequent attenuation of the signal will raise the noise figure just as much. $\nf$ is defined as
 
 			\begin{equation}
 				\nf=10\log \left(\frac{ \text{SNR}_\text{in} }{ \text{SNR}_\text{out} }\right) = \text{SNR}_\text{in,dB} -\text{SNR}_\text{out,dB}

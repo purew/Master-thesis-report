@@ -1,7 +1,7 @@
 \chapter{Variable attenuators}\label{ch:vargain}
 	\section{Introduction}
 
-		The IF-signal output should preferably be fixed in power as well as in frequency for later digital to analog-converters to be effective. In order to adjust the signal to a given level, the gain from the amplifiers is slightly higher than needed which, combined with variable attenuators, creates a variable gain circuit.
+		The IF-signal output should preferably be fixed in power as well as in frequency for later digital to analog-converters to be effective. In order to adjust the signal to a given level, the gain from the amplifiers is slightly higher than needed. This, combined with variable attenuators, create a variable gain circuit.
 
 	
 	%	It is specified that the variable gain should be controlled digitally, with \unit[3-4]{bits} of resolution and a gain of \unit[$\pm5$]{dB}, see \autoref{app:specs}. All attenuators are matched to \unit[50]{$\Omega$}. Bandwidth is not considered as the signal, after the mixer, has a narrow frequency band of \unit[20]{MHz} at \unit[2.14]{GHz}.  There are already variable attenuators implemented in PH25 and a comparison between basic attenuators in PPH25 concludes that there is little point in choosing another type.\autocite{gustavsson07}
@@ -9,7 +9,7 @@
 
 	\section{Topologies}
 		
-		The simplest attenuator consists of a resistance that somehow interacts with the main RF line. Usually transistors are used to dynamically divert power into an attenuator, either into ground or back to the main line. This crude technique will however lead to relatively large reflections which is why slightly more sophisticated topologies are used. T- and $\Pi$-attenuators are common and offer small reflections, see Figures \ref{fig:tee_att_simple} and \ref{fig:pi_att_simple}.
+		The simplest attenuator consists of a resistance that somehow interacts with the main RF line. Usually transistors are used to dynamically divert power into an attenuator, either into ground or back to the main line. This crude technique will however lead to relatively large reflections which are why slightly more sophisticated topologies are used. T- and $\Pi$-attenuators are common and offer small reflections, see Figures \ref{fig:tee_att_simple} and \ref{fig:pi_att_simple}.
 
 
 		
@@ -85,7 +85,7 @@ The entire attenuator-circuit must be properly biased. Therefore there are DC-bl
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=0.8\textwidth]{fig/attenuators/attenuator-chain-symbolic}
-			\caption[The attenuator-circuit schematically]{The three attenuators with DC-blocks raised to \unit[5]{V} so that the FETs are properly biased. The attenuators are controlled by level-shifters as explained in the following chapter.}\label{fig:attenuator-chain-symbolic}
+			\caption[The attenuator-circuit schematically]{The three attenuators with DC-blocks are raised to \unit[5]{V} so that the FETs are properly biased. The attenuators are controlled by level-shifters as explained in the following chapter.}\label{fig:attenuator-chain-symbolic}
 		\end{figure}
 
 	
@@ -168,7 +168,7 @@ The entire attenuator-circuit must be properly biased. Therefore there are DC-bl
 		This technique is well established at SAAB and there are existing models for the PH25-process\autocite{gustavsson07}. The level shifters are implemented again in PPH25 without any major changes.
 		
 	\subsection{Design}
-		The schematic  and real layout for the level shifter are seen in \autoref{fig:level_shifter_sch} and \autoref{fig:level_shifter_layout}, respectively.
+		The schematic and layout of the level shifter are seen in \autoref{fig:level_shifter_sch} and \autoref{fig:level_shifter_layout}, respectively.
 		In short, $v_{control}$  directly controls $T1$. When $T1$ is closed, $v_1=\unit[3]{V}$ as the bias voltage will split over $R_2$ and $R_6$. This in turn will cause $T_2$ to open, making  $v_2=\unit[5]{V}$. As $v_{control}$ is decreased, $T_1$ will eventually open, making $v_1=\unit[5]{V}$. As there will no longer be any current over $R_6$, $v_{gs}$ over $T_2$ will decrease, and $T_2$ will close, making $v_2=\unit[3]{V}$.
 		
 		The level shifter's output is shown in Figure\autoref{fig:levelshifter_output_spread}. By adjusting the two resistances between $V_{control}$ and ground in the circuit, the voltage at which the attenuator is turned on, $V_{shift}$ is adjusted. Also, the current consumption can be decreased by increasing the remaining resistances. However, there comes the penalty in the form of increased size. See Figure\autoref{fig:levelshifter_current} for the current consumption.

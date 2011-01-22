@@ -28,7 +28,7 @@
 			Amplifier IF1 does not use the amount of power that motivates the use of PPH25. The noise does however depend on the process choice. As explained in \autoref{sec:if1noise} there are no noise models for the PPH25 process. However, the noise level is through measurements estimated to be approximately \unit[0.5]{dB} higher for PPH25 than for PH25.
 			
 		\subsection{Attenuators}
-			The loss in the attenuator-FETs are marginally less for PPH25 than for PH25. The difference is at most \unit[0.1]{dB} per FET. As the attenuators are placed after the first amplifier the affect of these losses on the system's total noise figure is small.
+			The loss in the attenuator-FETs when closed is marginally less for PPH25 than for PH25. The difference is at most \unit[0.1]{dB} per FET. As the attenuators are placed after the first amplifier the affect of these losses on the system's total noise figure is small.
 
 		\subsection{Amplifier IF2}
 			The main reason for considering PPH25 is to increase power of the last amplifier (\autoref{sec:if2power}). The maximum DC current in an inductor for PH25 is merely \unit[44]{mA}.\autocite{ph25manual} The same value for PPH25 is \unit[130]{mA}.\autocite{pph25manual} The RF-choke in the bias network requires an inductor to prevent the RF-signal from escaping. A work-around for PH25 would be to create an inductor out of a long microstrip. This is however space inefficient as an inductor of this kind at \unit[2.14]{GHz} would become large.
@@ -56,4 +56,4 @@
 		
 		%One more thing not considered in the estimates is that the microstrips in the PPH25 process may have lower resistance than those in PH25. This is because the ?? layer is thicker, which decreases the losses and thereby also reduces the noise.\autocite{??} The extent of this effect is not known. % Need to talk with Niklas about this
 
-		For the first component in a reciever chain, where low noise is of utter importance, PH25 is the better choice. At least until the noise level in the PPH25 process can be confirmed and real noise models can be used in the design process. In this stage however, the first downconverter, the noise is not that important and the PPH25 power features makes it a better option.
+		For the first component in a receiver chain, where low noise is of utter importance, PH25 is the better choice. At least until the noise level in the PPH25 process can be confirmed and real noise models can be used in the design process. In this stage however, the first down-converter, the noise is not that important and the PPH25 power features makes it a better option.

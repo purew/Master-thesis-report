@@ -25,7 +25,7 @@
 				& + a_N\left[ V_{RF}\cos(\omega_{RF}t) + V_{LO}\cos(\omega_{LO}t) \right]^N
 			\end{align}
 
-			The output current $i=i_{DC}+i_{IN}+i_{SPUR}$ contains a DC current term ($i_{DC} = a_0 + a_2(V_{RF}^2+V_{LO}^2)+...$), the original signals ($i_{IN}=a_1(V_{RF}\cos(\omega_{RF}t) + V_{LO}\cos(\omega_{LO}t))$) and the mixing products ($i_{SPUR}$). The second-order terms are the primary mixing products and contains the upper ($\omega_{RF}+\omega_{LO}$) and the lower ($\omega_{RF}-\omega_{LO}$) sidebands:
+			The output current $i=i_{DC}+i_{IN}+i_{SPUR}$ contains a DC current term ($i_{DC} = a_0 + a_2(V_{RF}^2+V_{LO}^2)+...$), the original signals ($i_{IN}=a_1(V_{RF}\cos(\omega_{RF}t) + V_{LO}\cos(\omega_{LO}t))$) and the mixing products ($i_{SPUR}$). The second-order terms are the primary mixing products and contain the upper ($\omega_{RF}+\omega_{LO}$) and the lower ($\omega_{RF}-\omega_{LO}$) sidebands:
 
 			\begin{align}\label{eq:mixedsecondorder}
 				i_{2nd} = &a_2 \left [ \frac{1}{2}V^2_{RF}(1-\cos(2\omega_{RF}t)) + V_{RF}V_{LO}(\cos((\omega_{RF}-\omega_{LO})t) \right. \nonumber \\
@@ -51,7 +51,7 @@
 		\subsection{Image reject mixers}
 			Two mixers can be designed as an image reject mixer which cancels out the image frequency. That is the frequency which converts to the exact same IF-signal as the RF and is almost always an unwanted product. See \autoref{sec:mixer_introduction}.
 
-			The image reject functionality is achieved, in short, when the LSB and USB (lower and upper sideband respectively) are subjected to different phase shifts in the hybrids. This makes it possible to cancel out or suppress one of the sidebands depending on the quality of the hybrids and mixers. The image reject performance is very dependant on the precision of the baluns, more specifically the degrees of phase-shift and amplitude difference.\autocite{henderson85} %Finns en artikel som visar exact vilken undertryckning man får för olika baluner
+			The image reject functionality is achieved, in short, when the LSB and USB (lower and upper sideband respectively) are subjected to different phase shifts in the hybrids. This makes it possible to cancel out or suppress one of the sidebands depending on the quality of the hybrids and mixers. The image reject performance is very dependent on the precision of the baluns, more specifically the degrees of phase-shift and amplitude difference.\autocite{henderson85} %Finns en artikel som visar exact vilken undertryckning man får för olika baluner
 
 			These constructions are useful in situations when the image band lies close to the IF. In this case, the IF-signal has the frequency \unit[2.14]{GHz} and the image band starts at \unit[7.18]{GHz}. With this large distance in frequency the image is easily filtered and an image reject topology is therefore not considered.
 
@@ -61,7 +61,7 @@
 		\subsection{FET mixers}\label{sec:fet_mixers}
 			FET mixers generally have lower noise and higher gain compared to diode mixers. There are in general two approaches to designing a FET-mixer; active or resistive mixer. MMIC processes are optimized for FET-structures, not diodes. A major advantage with FET-mixers is the inherent isolation between the LO and the IF provided by the FET.
 
-			Active FET mixers are biased like an amplifying element and thus have a positive conversion gain while resistive mixers are biased with zero $v_{ds}$ and $v_{gs}$ below pinch-off such that the drain-source resistance is linear to the applied gate-voltage. When considering linearity, resisistive mixers are superior.\autocites{maas92,maas98}
+			Active FET mixers are biased like an amplifying element and thus have a positive conversion gain while resistive mixers are biased with zero $v_{ds}$ and $v_{gs}$ below pinch-off such that the drain-source resistance is linear to the applied gate-voltage. When considering linearity, resistive mixers are superior.\autocites{maas92,maas98}
 
 		\subsection{Conclusion}
 			Almost all MMIC mixers designed for the S band are today FET mixers. Diodes are common only when designing mixers with frequencies at least one order of magnitude higher or when using discrete components. Since high linearity is important, a FET resistive mixer is designed. To decide whether to implement it as single-ended or as singly balanced, both types are initially designed with simple ideal components. The single-balanced mixer is eventually disregarded due to its complexity and to the fact that the single-ended mixer shows adequate performance. The comparison is detailed in \autoref{sec:endvsbal}.
@@ -94,7 +94,7 @@
 
 			Besides  filtering, the diplexer has to match  both the input signal and the output signal. The input RF port is matched to \unit[50]{$\Omega$} at $\unit[2.9-3.4]{GHz}$ and the output IF port is matched to \unit[50]{$\Omega$} at \unit[2.14]{GHz}.
 
-			The diplexer is implemented using non-resistive L-C circuits with the number of poles required to fulfil the chip specifications. The losses in the inductors add directly to the overall noise figure of the chip. The result is therefore a trade-off between filter characteristics and network simplicity.
+			The diplexer is implemented using non-resistive L-C circuits with the number of poles required to fulfill the chip specifications. The losses in the inductors add directly to the overall noise figure of the chip. The result is therefore a trade-off between filter characteristics and network simplicity.
 
 		\subsection{Bias scheme}\label{sec:mixerbias}
 			The principle of the mixer is to set the gate-source voltage $v_{gs}$ below pinch-off and then control the FET with the LO-signal. Pinch-off for the FET is $v_p\approx \unit[-0.7]{V}$. A low distortion mixer is achieved by having high LO power and thereby reducing the rise-time when the FET switches on and off. This way, less time is spent operating in regions where $v_{gs}$ is close to $v_p$ (operation at gate voltages close to $v_p$ are more non-linear). However, an LO powered too high will cause the gate to rectify and this will in turn lead to non-linear operation.\autocite{maas98} By lowering $v_{gs}$ even more below $v_p$, this can be avoided. The gate will also start to break down for too large negative gate voltages, providing a lower limit for $v_{gs}$.
@@ -146,11 +146,11 @@
 			\begin{figure}[hbt!]
 				\centering
 				\includerect{1.0\textwidth}{fig/yield/diplexer_zoom}
-				\caption[Diplexer filter characteristics.]{Diplexer filter characteristics. The red (thick) line is the EM simulation and the blue lines correspond to the spread analysed with the circuit model. The curves marked with triangles $\triangle$ details the bandpass filter between the RF input and the mixer-FET drain. The curves marked with squares $\medsquare$ details the low-pass filter between the mixer-FET drain and the IF output.}\label{fig:diplexer_results}
+				\caption[Diplexer filter characteristics.]{Diplexer filter characteristics. The red (thick) line is the EM simulation and the blue lines correspond to the spread analysed with the circuit model. The curves marked with triangles $\triangle$ details the band pass filter between the RF input and the mixer-FET drain. The curves marked with squares $\medsquare$ details the low-pass filter between the mixer-FET drain and the IF output.}\label{fig:diplexer_results}
 			\end{figure}
 
 		\subsection{Conversion gain and matching}
-			Mixer gain (\autoref{fig:mixergain}) and input matching (\autoref{fig:mixermatch}) are calculated with the final LO-amplifier connected and using large signal analysis. The bias point does not effect neither the conversion gain nor the input matching much. The matching of the RF-port is quite independent of the LO power. The gain depends on the LO-signal which in turn depends on the LO input power. Different settings on the chip's gain block located after the first IF amplifier does not to affect the performance of the mixing part, which is why simulations with varied chip gain are not displayed. The final bias point is chosen to $v_g=\unit[-0.95]{V}$.
+			Mixer gain (\autoref{fig:mixergain}) and input matching (\autoref{fig:mixermatch}) are calculated with the final LO-amplifier connected and using large signal analysis. The bias point affects neither the conversion gain nor the input matching much. The matching of the RF-port is quite independent of the LO power. The gain depends on the LO-signal which in turn depends on the LO input power. Different settings on the chip's gain block located after the first IF amplifier does not to affect the performance of the mixing part, which is why simulations with varied chip gain are not displayed. The final bias point is chosen to $v_g=\unit[-0.95]{V}$.
 
 			\begin{figure}[hbt!]
 				\centering

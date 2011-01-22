@@ -10,14 +10,14 @@
 		Naturally there is a minimum of components necessary to achieve the specified performance. The mixing circuit needs a dedicated amplifier to amplify the LO-signal to an appropriate power level. Unless an image reject mixer is used, there is a need for a filter to remove the image frequencies which an opponent could use for jamming the system. The RF-to-IF chain needs amplifiers and a variable attenuator block. The nominal chip gain is set to be \unit[8--10]{dB} with a $\unit[\pm 5]{dB}$ gain control. This means that the signal must be amplified at least \unit[13]{dB} plus losses in the entire circuit. If the losses in the mixer and the attenuator block are \unit[10]{dB}, then the gain of the amplifiers must be at least \unit[23]{dB}.
 
 	\section{Component performance}
-		To estimate the performance of different layouts, typical performance of the individual components are needed. However, as this is an analysis made prior to the design, the performance is only estimated. In \autoref{tab:compperformance} the estimates are presented.
+		To estimate the performance of different layouts, typical performance of the individual components is needed. However, as this is an analysis made prior to the design, the performance is only estimated. In \autoref{tab:compperformance} the estimates are presented.
 
 		\begin{table}[hbt!]
 			\caption[Estimated performance of chip components.]{Estimated performance of the chip's components.}
 			\label{tab:compperformance}
 			\centering
 			\begin{tabular}{ l l l l } \toprule
-				& Mixer & Amplifier & Attentuators \\\midrule
+				& Mixer & Amplifier & Attenuators \\\midrule
 				Gain & \unit[-8]{dB} & $\unit[<13]{dB}$ & \unit[-2--12]{dB} \\
 				$\nf$ & \unit[8]{dB} & \unit[1--2]{dB} & \unit[2--12]{dB} \\
 				$IIP_3$ & \unit[20--27]{dBm} & \unit[14--22]{dBm} & \unit[30]{dBm} \\\bottomrule

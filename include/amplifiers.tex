@@ -44,7 +44,7 @@
 		\subsection{Power utilization}\label{sec:power}
 			As the DC-power consumption of an amplifier increases, the linearity ($P_{1dB}$ and $IIP_3$) increases. This is evident as compression will occur at higher power (\autoref{sec:p1db}). The LO amplifier is designed to operate in compression and as such it does not benefit from high power. The remaining available DC-power is divided between the first and the second IF amplifier. As the $IIP_3$ for the second amplifier affects the system more than that of the first one, the power utility here is higher.
 
-	\section{Constant power LO-amplifer}\label{sec:lo_amp}
+	\section{Constant power LO-amplifier}\label{sec:lo_amp}
 		\subsection{Introduction}
 			The system's LO-signal is specified to \unit[-5--0]{dBm} and therefore there is a need to amplify this signal. The purpose of the amplifier is to provide a high and constant input power to the mixer, not depending on fluctuations in the system's LO-signal. This is achieved by operating the amplifier in compression so that the mixer always sees the same LO. Also, by running the amplifier into compression, i.e. outputting a square-waved pulse, the mixer will switch faster between the on- and off-states, behaving more like an ideal switch. This results in a more linear mixer as explained in \autoref{sec:mixer_lodrive}.\autocite{vice03} %The LO-amplifier is matched against the mixer which is a highly reactive load.
 
@@ -52,7 +52,7 @@
 
 		\subsection{Design}
 			\subsubsection{Principle}
-				When designing an LO-amplifier for a resistive FET mixer, it is important to minimize reflections from the very reactive mixer-gate. However, attaining a well-matched gate is difficult.\autocite{yhland1999} At first, a bias-point is chosen, so that proper gain and compression is achieved. The dependence on frequency was considered too large and a weak feedback loop ($\unit[500]{\Omega}$) was implemented. A too strong feedback is undesirable because of the reduced gain and stability. A schematic and the actual layout of the amplifier are seen in \autoref{fig:sch_lo} and \autoref{fig:lo_layout}, respectively.
+				When designing an LO-amplifier for a resistive FET mixer, it is important to minimize reflections from the very reactive mixer-gate. However, attaining a well-matched gate is difficult.\autocite{yhland1999} At first, a bias-point is chosen, such that proper gain and compression is achieved. The dependence on frequency was considered too large and a weak feedback loop ($\unit[500]{\Omega}$) was implemented. A too strong feedback is undesirable because of the reduced gain and stability. A schematic and the actual layout of the amplifier are seen in \autoref{fig:sch_lo} and \autoref{fig:lo_layout}, respectively.
 
 
 	The FET is self-biased by applying a voltage to the source, while having $v_{DC}=\unit[0]{V}$ on the gate (see \ref{sec:bias} \nameref{sec:bias}). This requires having an inductance to ground close to the gate.
@@ -143,7 +143,7 @@
 			\begin{figure}[hbt!]
 				\centering
 				\includerect{0.7\textwidth}{fig/amplifiers/lo/lo_delivered_power}
-				\caption[Output power from LO-amplifier]{The power delivered into the mixer from the LO-amplifier for different frequencies and LO-input powers. Measured in between amplifier and mixer. The active frequencies are 5.04 to 5.54 GHz.}\label{fig:lo_delivered_power}
+				\caption[Output power from LO-amplifier]{The power delivered into the mixer from the LO-amplifier for different frequencies and LO-input powers. It is measured in-between amplifier and mixer. The active frequencies are 5.04 to 5.54 GHz.}\label{fig:lo_delivered_power}
 			\end{figure}
 			\begin{figure}[hbt!]
 				\centering
@@ -219,11 +219,11 @@ However, when spreading the LO- and mixer-FET which seem to cause most of the sp
 
 
 	\subsection{Discussion}
-		The key feature with the LO-amplifier is the square-waved pulse which helps to achieve a more linear mixer. The gain of the amplifier is somewhat low, this is attributed to the compression technique and the matching to the very reactive mixer FET. But due to the system layout with two IF-amplifiers, having a more powerful LO and thereby increasing the mixer's $P_{1dB}$-point would not yield a great increase in the complete chip's compression point as the IF-amplifiers then become the limiting factor. Also, a stronger LO-drive would be harder to filter out in the diplexer and the LO-isolation would suffer, see \autoref{fig:sysspectrum}. The interaction between mixer conversion gain and LO-amplifier is difficult to foresee which is why the matching network was modified many times and some adjustments to the diplexer's RF-bandpass were made before acceptable performance was achieved.
+		The key feature with the LO-amplifier is the square-waved pulse which helps to achieve a more linear mixer. The gain of the amplifier is somewhat low, this is attributed to the compression technique and the matching to the very reactive mixer FET. But due to the system layout with two IF-amplifiers, having a more powerful LO and thereby increasing the mixer's $P_{1dB}$-point would not yield a great increase in the complete chip's compression point as the IF-amplifiers then become the limiting factor. Also, a stronger LO-drive would be harder to filter out in the diplexer and the LO-isolation would suffer, see \autoref{fig:sysspectrum}. The interaction between mixer conversion gain and LO-amplifier is difficult to foresee which is why the matching network was modified many times and some adjustments to the diplexer's band-pass filter were made before acceptable performance was achieved.
 
 		The amplifier can deliver some more gain in exchange for compression by increasing $v_{ds}$ a notch, see \autoref{fig:lo_mixer_gain_comparison}. However, there are repercussions on the mixer gain if the LO becomes too strong. Therefore it might be of future interest to vary the \unit[5]{V}-bias voltage to achieve the desired bias-point. It is also possible to increase the gate-source voltage, $v_{gs}$, for some gain and increased power consumption.
 
-		The litterature states that a single ended FET resistive mixer has a $P_{1dB}$-point approximately \unit[4]{dB} above the LO-drive\autocite{radmanesh2002state} and the result for this LO-mixer construct applies approximately to that rule. A $P_{1dB}$ of \unit[12]{dBm} at $P_{LO}=\unit[-4]{dBm}$, at center frequency and a \unit[3]{dB} attenuation in the diplexer says that the required LO should be \unit[5]{dBm}. The LO-amplifier outputs \unit[3.5]{dBm} at these conditions and it is thought that the square-shaped LO-drive accounts for the extra linearity.
+		The literature states that a single ended FET resistive mixer has a $P_{1dB}$-point approximately \unit[4]{dB} above the LO-drive\autocite{radmanesh2002state} and the result for this LO-mixer construct applies approximately to that rule. A $P_{1dB}$ of \unit[12]{dBm} at $P_{LO}=\unit[-4]{dBm}$, at center frequency and a \unit[3]{dB} attenuation in the diplexer says that the required LO should be \unit[5]{dBm}. The LO-amplifier outputs \unit[3.5]{dBm} at these conditions and it is thought that the square-shaped LO-drive accounts for the extra linearity.
 
 		The reflections were tuned for an input power of \unit[-2]{dBm} but as the load changes for different input powers, it is difficult to achieve low reflections on all frequencies and for all input powers. Especially input powers of \unit[-4]{dBm} and high frequencies results in the input reflections being \unit[-10]{dB}.
 
@@ -235,7 +235,7 @@ However, when spreading the LO- and mixer-FET which seem to cause most of the sp
 
 	\section{Low noise IF-amplifier}
 		\subsection{Introduction}
-			All components of the MMIC should be as linear as possible. However, the noise figure in the system also requires attention. Together with the conversion loss in the mixer the first IF amplifier contributes with the most noise. This amplifier is therefore designed as a low noise amplifier (LNA). Linearity is still of high importance, which is why the amplifier should also have high $P_{1dB}$ and high $IIP_3$. As the IF-signal is a single frequency, the amplifier's bandwidth is very narrow.
+			All components of the MMIC should be as linear as possible. However, the noise figure in the system also requires attention. Together with the conversion loss in the mixer, the first IF-amplifier contributes with the most noise. This amplifier is therefore designed as a low noise amplifier (LNA). Linearity is still of high importance, which is why the amplifier should also have high $P_{1dB}$ and high $IIP_3$. As the IF-signal is a single frequency, the amplifier's bandwidth is very narrow.
 
 		\subsection{Design}
 			\subsubsection{Principle}
@@ -248,7 +248,7 @@ However, when spreading the LO- and mixer-FET which seem to cause most of the sp
 				\centering
 				%\includegraphics[width=1.0\textwidth]{fig/amplifiers/if1/noisematch}
 				\includesmith{0.8\textwidth}{fig/amplifiers/if1/noisematch}
-				\caption[$\Gamma_{opt}$ and constant noise circles for UMS FETs.]{$\Gamma_{opt}$ and constant noise circles for different UMS FET, both PH25 and PPH25. Both the absolute noise and the noise increase with mismatch is greater for PPH25. The \unit[8$\times$75]{\mum} is the biggest FET available. It has the lowest inherent noise, the most conveniently placed $\Gamma_{opt}$ and is the most linear device (see \autoref{sec:mixerdevice}).}\label{fig:if1noisematch}
+				\caption[$\Gamma_{opt}$ and constant noise circles for UMS FETs.]{$\Gamma_{opt}$ and constant noise circles for different UMS FET, both PH25 and PPH25. Both the absolute noise and the noise increase with mismatch are greater for PPH25. The \unit[8$\times$75]{\mum} is the biggest FET available. It has the lowest inherent noise, the most conveniently placed $\Gamma_{opt}$ and is the most linear device (see \autoref{sec:mixerdevice}).}\label{fig:if1noisematch}
 			\end{figure}
 
 			\subsubsection{FET selection and input network}
@@ -305,7 +305,7 @@ However, when spreading the LO- and mixer-FET which seem to cause most of the sp
 		\subsection{Discussion}
 			The narrowband property of the amplifier enables a design in which parallel feedback can be omitted. This has a good impact on the noise figure but it also gives a steep gain slope and a gate that is hard to match. One consequence is that the matching inductors become very large which in turn increases the noise figure as the UMS inductors have a somewhat low quality factor Q. Another consequence is that would the frequency characteristics shift only \unit[100]{MHz} during fabrication the performance of the amplifier will change dramatically. Detailed frequency dependence can be found in \autoref{sec:yieldif1}.
 
-			A noise figure of \unit[1.5]{dB} can by LNA-standards not be considered low. In the PH25 process this value could very well be cut in half.\autocite{kyuko96} Still, amplifier IF1 is not designed only to produce  low  noise, but also to have linear operation. This leads to a compromise in which the power-PH25 process without noise models is used.
+			A noise figure of \unit[1.5]{dB} can by LNA-standards not be considered low. In the PH25 process, this value could very well be cut in half.\autocite{kyuko96} Still, amplifier IF1 is not designed only to produce  low  noise, but also to have linear operation. This leads to a compromise in which the power-PH25 process without noise models is used.
 
 %			\begin{figure}[hbt!]
 %				\centering
@@ -403,7 +403,7 @@ However, when spreading the LO- and mixer-FET which seem to cause most of the sp
 				\end{figure}
 
 		\subsection{Discussion}
-			The thermal limitations forced a two-FET amplifier design. This requires more space but effectively splits the source-drain current for each device in half. Another interesting observation is that the amplifier's linearity increased in the process. $P_{1dB}$ increased with \unit[4]{dBm} keeping the power consumption unchanged. The reason for this increase is attributed the same general reason why large devices are preferred over small when designing high-linearity class A amplifiers.
+			The thermal limitations forced a two-FET amplifier design. This requires more space but effectively splits the source-drain current for each device in half. Another interesting observation is that the amplifier's linearity increased in the process. $P_{1dB}$ increased with \unit[4]{dBm} keeping the power consumption unchanged. The reason for this increase is attributed the same general reason why large devices are preferred over small, when designing high-linearity class A amplifiers.
 
 			Even though the junction temperature in the FETs has been reduced dramatically with the dual-FET design, the asymmetric design with only one source network causes a large current to flow through the upper transistor. The FET connected to the source has the DC-current of the other transistor in the source. In these UMS FETs the source layers are connected with \unit[14]{\mum} air bridges. According to the maximum ratings these layers can only handle \unit[7.5]{mA/\mum}. This gives a total of $\unit[105]{mA}$ and the design is just above that ($\unit[110]{mA}$). The three alternatives are either to reduce the current $\unit[5]{mA}$, to widen the air bridge \unit[1]{\mum} or to route a common source for both FETs from the middle strip via an air bridge.
 

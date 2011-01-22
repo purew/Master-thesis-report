@@ -1,4 +1,4 @@
-\chapter{Chip Summary And Final Conclusions}
+\chapter{Chip Summary and Final Conclusions}
 	
 		The complete circuit design is the final product of this work. It is based on the three previous chapters explaining the design of the chip's individual components. This chapter explains the final layout with connecting pads and lists the final full-chip simulations. The chip is compared to design specifications and potential improvements are discussed. The report is wrapped up with some final conclusions.
 		
@@ -10,7 +10,7 @@
 
 		First of all, the incoming RF- and outgoing IF-port should ideally be placed on opposite sides of the chip. In order to avoid interference, it would be preferable to have the LO-port on one of the remaining sides. Early on, a straight signal path was favored over more complex choices although this wasn't really a requirement and was relaxed as the chip-layout matured. %The size of the chip had to be \unit[2.4x3.4]{mm} as a smaller
 
-		The diplexer is a big sub-circuit and rather significant to the entire chip-function and at large decides the placement of other circuits on the chip. The LO-amplifier is quite small and connects straight to the mixer. The remaining subcircuits: Two IF-amplifiers and three attenuators are adjusted to fit together.
+		The diplexer is a big sub-circuit and rather significant to the entire chip-function and at large decides the placement of other circuits on the chip. The LO-amplifier is quite small and connects straight to the mixer. The remaining sub circuits: Two IF-amplifiers and three attenuators are adjusted to fit together.
 
 		The final layout has the RF-port and IF-port on opposite short sides of the chip coupled with ground-pads. No other pads are placed on the short sides to keep the bonding wires isolated. The LO-signal and two bias-signals for the mixer and LO-amplifier respectively are connected on one of the long sides. The bias-signals for the two circuits are separated and isolated with two grounded pads. This gives the possibility of biasing the mixer and/or the amplifier with signals different from \unit[5]{V} in the future.
 	
@@ -98,7 +98,7 @@
 				\caption[Chip gain for different LO drives.]{Chip gain versus frequency for different LO drives at nominal gain. The gain variation is kept below \unit[0.6]{dB} between \unit[2.9 and 3.4]{GHz} for $P_{lo}$=\unit[-4 to 0]{dBm}.}\label{fig:sysgainvslo}
 			\end{figure}
 			
-			The IF signal has a narrow bandwidth. Even so, the \unit[20]{MHz} on the MMIC that it does occupy exhibits a frequency dependent gain according to \autoref{fig:ifbehave}. This plot is also interesting, should the frequency characteristics in the IF-path shift.
+			The IF-signal has a narrow bandwidth. Even so, the \unit[20]{MHz} on the MMIC that it does occupy exhibits a frequency dependent gain according to \autoref{fig:ifbehave}. This plot is also interesting, should the frequency characteristics in the IF-path shift.
 			
 			\begin{figure}[hbt!]
 				\centering
@@ -166,7 +166,7 @@
 	
 
 		\subsection{Compression point}
-		The \unit[1]{dB}-compression point could not be successfully simulated using circuit-models and therefore a qualitative argument must be made using performance of subcircuits and theory.
+		The \unit[1]{dB}-compression point could not be successfully simulated using circuit models and therefore a qualitative argument must be made using performance of sub-circuits and theory.
 		
 		Since the gain of the FETs decrease with temperature, it can be argued that the IF-amplifiers' compression-points will not decrease at higher temperatures. The LO-amplifier loses \unit[0.4]{dB} of gain at \unit[55]{$^\circ$C} due to its TiWSi-feedback loop and reduced FET-gain which may affect the mixer $P_{1dB}$ with as much. This does not affect the chip compression point by more than \unit[-0.1]{dB} at nominal gain. It is therefore probable that higher temperatures will not affect the chip compression point more than \unit[-0.1]{dB}. 
 		
@@ -281,11 +281,11 @@
 			The simulation software cannot provide high enough accuracy needed to perform the three-tone simulation ($f_{RF1}$, $f_{RF2}$ and $f_{LO}$) necessary for $IIP_3$, why estimates from $P_{1dB}$-simulations are used instead. Some full-chip, low accuracy $IIP_3$ simulations are however made for reference and they show a $\sim$\unit[3]{dBm} better result than the estimates using $P_{1dB}$. Due to their uncertainty, these results are not listed above. It is interesting to see which results the manufactured chip will adhere to.
 			
 		\subsection{Noise}
-			As PPH25 noise models are unavailable, the noise figure for the individual components are estimated using various methods. The reliability of these noise figures is quite high. Contrary to measuring $P_{1dB}$ on the full chip, noise cannot be simulated but must instead be calculated using a formula similar to the one used for $IIP_3$ (\autoref{sec:casc_iip3}). Calculating $IIP_3$ this way gives a \unit[2]{dB} discrepancy from the complete chip simulation. There is a possibility that this discrepancy in present also in the case of the noise. It is therefore hard to say if the final noise figure result is as reliable as the individual components'.
+			As PPH25 noise models are unavailable, the noise figures for the individual components are estimated using various methods. The reliability of these noise figures is quite high. Contrary to measuring $P_{1dB}$ on the full chip, noise cannot be simulated but must instead be calculated using a formula similar to the one used for $IIP_3$ (\autoref{sec:casc_iip3}). Calculating $IIP_3$ this way gives a \unit[2]{dB} discrepancy from the complete chip simulation. There is a possibility that this discrepancy in present also in the case of the noise. It is therefore hard to say if the final noise figure result is as reliable as the individual components'.
 			
 	\section{Conclusions}
 		\subsection{Achievements}
-			The simulations show that the chip performs well, comparing performance to the specifications. Except for some input matching and input power issues at the LO port all required and targeted goals are met. Chip $IIP_3$ is \unit[3]{dB} above the targeted performance and the noise figure $\nf$ is \unit[1]{dB} below the target.
+			The simulations show that the chip performs well when comparing performance to the specifications. Except for some input matching and input power issues at the LO port all required and targeted goals are met. Chip $IIP_3$ is \unit[3]{dB} above the targeted performance and the noise figure $\nf$ is \unit[1]{dB} below the target.
 						
 		\subsection{Possible improvements}
 			RF-to-IF isolation in the chip is rather weak, only \unit[7.6]{dB} at nominal gain. There is no required level of isolation specified but a RF-signal at the output only \unit[18]{dB} lower than the IF-signal can be considered large. In order to increase the isolation the filtering structure after the mixing FET has to be improved. Components part of this structure are the low-pass filter in the diplexer and the two IF-amplifiers. This is not an easy task as the RF lies close to the IF in frequency. The isolation would be even worse if the first IF amplifier would have wider bandwidth and thus higher gain at the RF frequency (which is possible with parallel feedback).
