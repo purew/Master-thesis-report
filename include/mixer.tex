@@ -49,11 +49,11 @@
 			The downside is that additional elements must be introduced in the form of hybrids or baluns and these are often relatively large on MMICs, depending on frequency. These elements either phase shift or convert the signal between balanced and unbalanced signals.
 
 		\subsection{Image reject mixers}
-			Two mixers can be designed as an image reject mixer which cancels out the image frequency. That is the frequency that converts to the exact same IF-signal as the RF and is almost always an unwanted product. See \autoref{sec:mixer_introduction}.
+			Two mixers can be designed as an image reject mixer which cancels out the image frequency. That is the frequency which converts to the exact same IF-signal as the RF and is almost always an unwanted product. See \autoref{sec:mixer_introduction}.
 
 			The image reject functionality is achieved, in short, when the LSB and USB (lower and upper sideband respectively) are subjected to different phase shifts in the hybrids. This makes it possible to cancel out or suppress one of the sidebands depending on the quality of the hybrids and mixers. The image reject performance is very dependant on the precision of the baluns, more specifically the degrees of phase-shift and amplitude difference.\autocite{henderson85} %Finns en artikel som visar exact vilken undertryckning man får för olika baluner
 
-			These constructions are most useful in situations when the image band lies close to the IF. In this case the IF-signal has the frequency \unit[2.14]{GHz} and the image band starts at \unit[7.18]{GHz}. With this large distance in frequency the image is easily filtered and an image reject topology is therefore not considered.
+			These constructions are useful in situations when the image band lies close to the IF. In this case, the IF-signal has the frequency \unit[2.14]{GHz} and the image band starts at \unit[7.18]{GHz}. With this large distance in frequency the image is easily filtered and an image reject topology is therefore not considered.
 
 		\subsection{Diode mixers}
 			Diode mixers are realized with Schottky diodes because of their switching speed. Today diode mixers are more prevalent for high frequencies, where FETs are less potent. An advantage with diode mixers is that they do not need a bias voltage.
@@ -64,16 +64,16 @@
 			Active FET mixers are biased like an amplifying element and thus have a positive conversion gain while resistive mixers are biased with zero $v_{ds}$ and $v_{gs}$ below pinch-off such that the drain-source resistance is linear to the applied gate-voltage. When considering linearity, resisistive mixers are superior.\autocites{maas92,maas98}
 
 		\subsection{Conclusion}
-			Almost all MMIC mixers designed for the S band are today FET mixers. Diodes are common only when designing mixers with frequencies at least one order of magnitude higher or using discrete components. Since high linearity is important, a FET resistive mixer is designed. To decide whether to implement it as single-ended or as singly balanced, both types are initially designed with simple ideal components. The single-balanced mixer is eventually disregarded due to its complexity and to the fact that the single-ended mixer shows adequate performance. The comparison is detailed in \autoref{sec:endvsbal}.
+			Almost all MMIC mixers designed for the S band are today FET mixers. Diodes are common only when designing mixers with frequencies at least one order of magnitude higher or when using discrete components. Since high linearity is important, a FET resistive mixer is designed. To decide whether to implement it as single-ended or as singly balanced, both types are initially designed with simple ideal components. The single-balanced mixer is eventually disregarded due to its complexity and to the fact that the single-ended mixer shows adequate performance. The comparison is detailed in \autoref{sec:endvsbal}.
 
 	\section{Design of single-ended FET resistive mixer}
 		\subsection{Device}\label{sec:mixerdevice}
-			As described in \autoref{sec:mixerbias} higher LO power will result in a more linear mixer. The greater the gate width, the more LO power the FET can handle. The largest FET in the UMS process has a \unit[8$\times$75]{\mum} gate width. As it turns out, this is also the FET which gate is easiest to match to $\unit[50]{\Omega}$.\autocite{gustavsson07}
+			As described in \autoref{sec:mixerbias}, higher LO power will result in a more linear mixer. The greater the gate width, the more LO power the FET can handle. The largest FET in the UMS process has a \unit[8$\times$75]{\mum} gate width. As it turns out, this is also the FET which gate is easiest to match to $\unit[50]{\Omega}$.\autocite{gustavsson07}
 
 			 A shunt inductance is placed at the gate to the mixing FET in order to ensure that the FET bias point remains fixed at high LO power. The inductance is part of the matching network in the LO-amplifier.
 
 		\subsection{Diplexer}
-			The overall simplicity of the FET resistive mixer makes the diplexer the most sophisticated part and also crucial to the performance (\autoref{fig:mixerDiplexer}). Between the RF input and the mixer FET, the network has to band-pass filter the signal in order to both inhibit the IF-signal from leaking out and to suppress the radar image at $f_{image}=f_{LO}+f_{IF}$. Once the image frequency has passed this filter it will mix down to $f_{IF}$ and from there be indistinguishable from the original signal:
+			The overall simplicity of the FET resistive mixer makes the diplexer the most sophisticated part and also crucial to the performance (\autoref{fig:mixerDiplexer}). Between the RF input and the mixer FET, the network has to band-pass filter the signal in order to both inhibit the IF-signal from leaking out and to suppress the radar image at $f_{image}=f_{LO}+f_{IF}$. Once the image frequency has passed this filter, it will mix down to $f_{IF}$ and from there be indistinguishable from the original signal:
 
 			\begin{equation}
 				|f_{image}\pm f_{LO}| = |f_{LO}+f_{IF}\pm f_{LO}| = \left \{
@@ -97,7 +97,7 @@
 			The diplexer is implemented using non-resistive L-C circuits with the number of poles required to fulfil the chip specifications. The losses in the inductors add directly to the overall noise figure of the chip. The result is therefore a trade-off between filter characteristics and network simplicity.
 
 		\subsection{Bias scheme}\label{sec:mixerbias}
-			The principle of the mixer is to set the gate-source voltage $v_{gs}$ below pinch-off and then control the FET with the LO-signal. Pinch-off for the FET is $v_p\approx \unit[-0.7]{V}$. A low distortion mixer is achieved by having high LO power and thereby reducing the rise-time when the FET switches on and off. This way less time is spent operating in regions where $v_{gs}$ is close to $v_p$ (operation at gate voltages close to $v_p$ are more non-linear). However, an LO powered too high will cause the gate to rectify and this will in turn lead to non-linear operation.\autocite{maas98} By lowering $v_{gs}$ even more below $v_p$ this can be avoided. The gate will also start to break down for too large negative gate voltages, providing a lower limit for $v_{gs}$.
+			The principle of the mixer is to set the gate-source voltage $v_{gs}$ below pinch-off and then control the FET with the LO-signal. Pinch-off for the FET is $v_p\approx \unit[-0.7]{V}$. A low distortion mixer is achieved by having high LO power and thereby reducing the rise-time when the FET switches on and off. This way, less time is spent operating in regions where $v_{gs}$ is close to $v_p$ (operation at gate voltages close to $v_p$ are more non-linear). However, an LO powered too high will cause the gate to rectify and this will in turn lead to non-linear operation.\autocite{maas98} By lowering $v_{gs}$ even more below $v_p$, this can be avoided. The gate will also start to break down for too large negative gate voltages, providing a lower limit for $v_{gs}$.
 
 			As the chip is fed a $+\unit[5]{V}$ DC, the source and drain are both raised to $|v_{gs}|$ for the mixer to experience an effective negative gate voltage and $v_{ds}=\unit[0]{V}$. The bias network is placed at the source and two large value resistors divide the voltage appropriately. No DC-current will pass through the resistors.
 
@@ -179,7 +179,7 @@
 			\end{figure}
 
 		\subsection{Linearity}
-			\autoref{fig:mixerp1dbvsbias} illustrates the compression of the conversion gain for different bias points $v_{gs}$. $P_{1dB}$ is the point where the conversion gain has dropped \unit[1]{dB} and is usually referenced to the input power. $P_{1dB}$ as a function of frequency and LO input power are plotted in \autoref{fig:mixerp1db}.
+			\autoref{fig:mixerp1dbvsbias} illustrates the compression of the conversion gain for different bias points $v_{gs}$. $P_{1dB}$ is the point where the conversion gain has dropped \unit[1]{dB} and is usually referenced to the input power compression point. $P_{1dB}$ as a function of frequency and LO input power are plotted in \autoref{fig:mixerp1db}.
 
 			\begin{figure}[hbt!]
 				\centering
@@ -210,8 +210,8 @@
 			\end{figure}
 
 	\section{Discussion}
-		As discussed in the performed topology study there a few sophisticated designs that may give very good mixer performance. The achieved performance and the simple design of the single-ended resistive FET mixer is however undeniable. Not only does this save design effort but also space on the chip and thereby also money in yield and wafer costs. It is not surprising that the industry in general chooses this topology for high linearity mixers at these frequencies.\autocite{web:hittite}
+		As discussed in the performed topology study, there a few sophisticated designs that may give very good mixer performance. The achieved performance and the simple design of the single-ended resistive FET mixer is however undeniable. Not only does this save design effort but it also frees space on the chip, thereby saving money in yield and wafer costs. It is not surprising that the industry in general chooses this topology for high linearity mixers at these frequencies.\autocite{web:hittite}
 
-		The noise figure in the mixer is casually considered equal to the losses. Even though this is a popular approach there are some ways to take noise generated in the mixer into account.\autocite{kundert07} However, since the noise figure is generally somewhat lower than the losses, the conversion loss is taken as a high estimate of the noise, disregarding the more accurate noise calculations.
+		The noise figure in the mixer is casually considered equal to the losses. Even though this is a popular approach, there are some ways to take noise generated in the mixer into account.\autocite{kundert07} However, since the noise figure is generally somewhat lower than the losses, the conversion loss is taken as a high estimate of the noise, disregarding the more accurate noise calculations.
 
 		Low accuracy three-tone $IIP_3$ simulations yield a result \unit[2--3]{dBm} higher than the estimates made from $P_{1dB}$. Due to their uncertainty, these results are not reported here and are only mentioned in this discussion for reference.
