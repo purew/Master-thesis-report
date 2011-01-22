@@ -33,6 +33,8 @@
 	\section{Budget analysis}\label{sec:budget_analysis}
 		The purpose of the budget analysis is to estimate the performance of the MMIC based on the estimates made of each individual component. With the noise target $\nf<\unit[12]{dB}$ and linearity target $IIP_3>\unit[17]{dBm}$, it is evident that the priority is high linearity and that the signal chain thus needs to start out with an attenuating device. All components placed before the mixer in the signal path need to have a \unit[0.5]{GHz} bandwidth while components placed after only need performance for a \unit[20]{MHz} narrow band. Estimates of full chip performance are made for some different component permutations at different gain states. This way, the effect on the performance due to different gain settings is taken into account.
 
+		The performance of a chip layout starting out with the gain block (\autoref{tab:confper2}) has two inherent problems. The first is that all components prior to the mixer must be wideband and the second is that the entire chip becomes very sensitive to the gain setting (compare with \autoref{tab:confper1}). Due to these, only chip layouts starting out with the mixer are considered feasible. Also, if the mixer is placed first, there are possibilities to integrate the filter with the input networks existing in most mixer designs.
+		
 		\begin{table}[hpt!]
 			\caption[Estimated performance of chip setup 1.]{Estimated performance of chip setup 1. The order of the components is. Filter, mixer, amplifier, attenuators and amplifier.}
 			\label{tab:confper1}
@@ -85,8 +87,6 @@
 			\end{tabular}
 		\end{table}
 
-		The performance of a chip layout starting out with the gain block (\autoref{tab:confper2}) has two inherent problems. The first is that all components prior to the mixer must be wideband and the second is that the entire chip becomes very sensitive to the gain setting (compare with \autoref{tab:confper1}). Due to these, only chip layouts starting out with the mixer are considered feasible. Also, if the mixer is placed first, there are possibilities to integrate the filter with the input networks existing in most mixer designs.
-
 		Considering the three setups starting with a mixer, the layout in \autoref{tab:confper3} gives a good noise figure but too low $IIP_3$ and the layout in \autoref{tab:confper4} gives high $IIP_3$ but too much noise. The layout in \autoref{tab:confper1}, starting out with a mixer and then alternating amplifier and attenuator, gives the best trade-off in performance and low sensitivity to different gain states. With this design, it should be possible to reach the required performance as stated in the specifications. Also the targeted performance will be met at most gain states.
 
 	\section{Realization}
@@ -96,8 +96,9 @@
 
 		Three different types of amplifiers are designed and reported in \autoref{ch:amp}. The first one is the LO-amplifier running in compression to provide an amplified and stable LO signal to the mixer. The second and third amplifiers are placed on the IF path, to provide the necessary chip gain. The first is designed to minimize the noise contribution while the second is designed to maximize power output and thereby chip linearity.
 
-		Chapter \ref{ch:vargain} contains the design and results of a variable attenuator block needed to control the chip gain.
+		In Chapter \ref{ch:vargain} is the design and results of a variable attenuator block explained. This block is needed to control the chip gain.
 
+	\newpage
 	\section{Comparison to final result}
 		The figures above are based on prior estimates. \autoref{tab:confper1final} lists the results achieved with the layout in \autoref{tab:confper1} and shows a good agreement.
 

@@ -152,7 +152,7 @@
 		\subsection{Conversion gain and matching}
 			Mixer gain (\autoref{fig:mixergain}) and input matching (\autoref{fig:mixermatch}) are calculated with the final LO-amplifier connected and using large signal analysis. The bias point does not effect neither the conversion gain nor the input matching much. The matching of the RF-port is quite independent of the LO power. The gain depends on the LO-signal which in turn depends on the LO input power. Different settings on the chip's gain block located after the first IF amplifier does not to affect the performance of the mixing part, which is why simulations with varied chip gain are not displayed. The final bias point is chosen to $v_g=\unit[-0.95]{V}$.
 
-			\begin{figure}[hpt!]
+			\begin{figure}[hbt!]
 				\centering
 				\subfloat[][Conversion gain for different LO powers at $v_{gs}$=-0.95 V.]{
 					\includerect{0.5\textwidth}{fig/mixer/convgainvslo}
@@ -165,7 +165,7 @@
 				\caption[Mixer conversion gain.]{Mixer conversion gain.}\label{fig:mixergain}
 			\end{figure}
 
-			\begin{figure}[hpt!]
+			\begin{figure}[hbt!]
 				\centering
 				\subfloat[][Input matching for different LO powers at $v_{gs}$=-0.95 V..]{
 					\includerect{0.5\textwidth}{fig/mixer/matchvslo}

@@ -102,26 +102,6 @@
 			The order of the intermodulation products are $O=\sum_{m=1}^n|k_m|$ and the amplitude of a signal rapidly decreases as the order gets higher. The intermodulation products that are most harmful are thus low-order signals at frequencies close to the IF. The signal of interest, the IF-signal, will in a non-linear mixer become mixed up with many of these spurious signals. The source of spurious signals are not only different orders of RF and LO signal mixes but also mixes of multiple input RF signals along with the LO. Even though this creates infinite combinations of mixing frequencies, there are a few of special interest. See \citeauthor{kundert02} for a thorough theoretical treatment\autocite{kundert02}.
 
 
-			\begin{table}[hbt!]
-			\caption[Single-tone spurious signals.]{Spurious signal frequencies, within \unit[1.5]{GHz} of the IF, originating from single-tone excitation. The frequencies are mixed according to $f_{mix} = mf_{RF} + nf_{LO}$ and the orders are $O=|m|$. $ f_{RF}=\unit[3.2]{GHz}$ and $ f_{LO}=\unit[5.34]{GHz}$.}
-			\label{tab:introsingletone}
-			\centering
-			\begin{tabular}{rrrr}
-				m & n & Frequency (GHz) & Order \\\hline
-%				  4 &  -2 & 2.12 & 4 \\
-%				 -1 &   1 & 2.14 & 1 \\
-%				 -6 &   4 & 2.16 & 6 \\
-				  2 &  -1 & 1.06 & 2 \\
-				 -3 &   2 & 1.08 & 3 \\
-				  4 &  -2 & 2.12 & 4 \\
-				 -1 &   1 & 2.14 & 1 \\
-				 -6 &   4 & 2.16 & 6 \\
-				 -6 &  -3 & 3.18 & 6 \\
-				  1 &   0 &  3.2 & 1 \\
-				 -4 &   3 & 3.22 & 4
-			\end{tabular}
-			\end{table}
-
 %			\begin{table}[hbt!]
 %			\caption[Two-tone spurious signals.]{Spurious signal frequencies, within \unit[0.5]{GHz} of the IF, originating from a two-tone excitation. The frequencies are mixed according to $f_{mix} = mf_{RF1} + nf_{RF2} + pf_{LO}$ and the orders are $O=|m|+|n|$. $ f_{RF1}=\unit[3.2]{GHz}$, $ f_{RF2}=\unit[3.22]{GHz}$ and $ f_{LO}=\unit[5.34]{GHz}$.}
 %			\label{tab:introtwotone}
@@ -157,10 +137,30 @@
 %			\end{tabular}
 %			\end{table}
 
-		In order to find out which spurious frequencies are present, all low-order mixing products for the system have been calculated, using frequencies valid for the project (\autoref{tab:introsingletone}). %In the two-tone input two tones of equal amplitude, \unit[20]{MHz} apart, are fed as RF-signals.
-		The order of intermodulation by convention only counts the sum of the coefficients of the RF-signals.
+			In order to find out which spurious frequencies are present, all low-order mixing products for the system have been calculated, using frequencies valid for the project (\autoref{tab:introsingletone}). %In the two-tone input two tones of equal amplitude, \unit[20]{MHz} apart, are fed as RF-signals.
+			The order of intermodulation by convention only counts the sum of the coefficients of the RF-signals.
+		
+			\begin{table}[hbt!]
+				\caption[Single-tone spurious signals.]{Spurious signal frequencies, within \unit[1.5]{GHz} of the IF, originating from single-tone excitation. The frequencies are mixed according to $f_{mix} = mf_{RF} + nf_{LO}$ and the orders are $O=|m|$. $ f_{RF}=\unit[3.2]{GHz}$ and $ f_{LO}=\unit[5.34]{GHz}$.}
+				\label{tab:introsingletone}
+				\centering
+				\begin{tabular}{rrrr}
+					m & n & Frequency (GHz) & Order \\\hline
+	%				  4 &  -2 & 2.12 & 4 \\
+	%				 -1 &   1 & 2.14 & 1 \\
+	%				 -6 &   4 & 2.16 & 6 \\
+					  2 &  -1 & 1.06 & 2 \\
+					 -3 &   2 & 1.08 & 3 \\
+					  4 &  -2 & 2.12 & 4 \\
+					 -1 &   1 & 2.14 & 1 \\
+					 -6 &   4 & 2.16 & 6 \\
+					 -6 &  -3 & 3.18 & 6 \\
+					  1 &   0 &  3.2 & 1 \\
+					 -4 &   3 & 3.22 & 4
+				\end{tabular}
+			\end{table}
 
-		A similar calculation of mixing products using two-tone excitation results in more spurious frequencies. The frequencies are mixed according to $f_{mix} = mf_{RF1} + nf_{RF2} + pf_{LO}$, where $f_{RF1}$ and $f_{RF2}$ are placed some tenth of MHz apart. Of special interest are the of $m$ and $n$ low odd-order signals with a low-order LO ($p=1$), and in particular the third-order intermodulation product.
+			A similar calculation of mixing products using two-tone excitation results in more spurious frequencies. The frequencies are mixed according to $f_{mix} = mf_{RF1} + nf_{RF2} + pf_{LO}$, where $f_{RF1}$ and $f_{RF2}$ are placed some tenths of MHz apart. Of special interest are the of $m$ and $n$ low odd-order signals with a low-order LO ($p=1$), and in particular the third-order intermodulation product.
 
 		\subsection{Intercept point} \label{sec:ip3}
 			Usually the third-order intermodulation products from multiple input signals cause most distortion. The third-order intercept point is an observable used to quantify the linearity in a component. Although it measures the third-order product in particular, it represents the overall linearity of a system.
