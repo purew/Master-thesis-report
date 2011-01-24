@@ -1,8 +1,8 @@
 \chapter{Electromagnetic Simulations}\label{app:emsim}
-		The length scales when designing integrated circuits are very small. This combined with gigahertz frequencies cause the electric design models to be inaccurate. Unexpected electric fields can cause a circuit to behave very erratic. To model this behaviour realistically finite element analysis is used. The electric structures are defined as meshes and the Maxwell equations are solved numerically. This is the most accurate way available to predict the properties and performance of a circuit. However, the simulations are computationally heavy and are mainly used as a final step to verify and adjust a design initially based on electric circuit models.
+		The length scales when designing integrated circuits are very small. This combined with gigahertz frequencies cause the electric design models to be inaccurate. Unexpected electric fields can cause a circuit to behave very erratic. To model this behaviour realistically, finite element analysis is used. The electric structures are defined as meshes and the Maxwell equations are solved numerically. This is the most accurate way available to predict the properties and performance of a circuit. However, the simulations are computationally heavy and are mainly used as a final step to verify and adjust a design initially based on electric circuit models.
 
-		Besides not treating coupling between elements the electric models are unreliable at high frequencies (\autoref{fig:emsiminductor4}). Even though the fundamental frequencies in this project reside within the accurate range there are higher frequency harmonics that will be calculated erroneously.
-		
+		Besides not treating coupling between elements, the electric models are unreliable at high frequencies (\autoref{fig:emsiminductor4}). Even though the fundamental frequencies in this project reside within the accurate range, there are higher frequency harmonics that may be simulated erroneously.
+
 		In \autoref{fig:if2mesh} the passive structure of amplifier IF2 is modeled and meshed. This is an example of a structure used in the final electromagnetic simulations.
 
 		\begin{figure}[hpt!]
