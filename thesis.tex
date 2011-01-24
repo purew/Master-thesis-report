@@ -39,13 +39,18 @@
 	%\setdefaulthdr
 
 	\settocdepth{section}
-	\newevenside
+	\cleardoublepage
 	\input{include/introduction}
+	\cleardoublepage
 	\input{include/systemdesign}
+	\cleardoublepage
 	\input{include/mixer}
+	\cleardoublepage
 	\input{include/amplifiers}
+	\cleardoublepage
 	\input{include/vargain}
 	\settocdepth{subsection}
+	\cleardoublepage
 	\input{include/systemsummary}
 	\settocdepth{chapter}
 
@@ -60,13 +65,20 @@
 
 %	\newpage
 	% Start of appended chapters
-	\appendix
+	\appendix	
+	% Don't think we need to have \cleardoublepage for appendices	
+%	\cleardoublepage
 	\input{include/glossary}
+%	\cleardoublepage
 	\input{include/specifications}
+%	\cleardoublepage
 	\input{include/process}
+%	\cleardoublepage
 	\input{include/mixercomp}
 	%\input{include/schematics}
+%	\cleardoublepage
 	\input{include/emsim}
+%	\cleardoublepage
 	\input{include/yield}
 
 \end{document}

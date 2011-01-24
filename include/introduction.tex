@@ -1,14 +1,14 @@
 \chapter{Introduction}
 	\section{Active electronically scanned array}
-		Radars of today often utilize a phased array function which permits steering of the antenna lobe by use of constructive and destructive interference. This removes the need for mechanical constructions that rotates the radar. By not having any movable parts, the reliability and performance vastly outperforms the properties of rotating radars. For example, because the angular speed of the electronically steered antenna array, the antenna lobe can simultaneously keep track of several targets while also scanning the skies for new ones. This type of radar is an electronically steered antenna, or ESA.\autocite{web:navair02}
+		Radars of today often utilize a phased array function which permits steering of the antenna lobe by use of constructive and destructive interference. This removes the need for mechanical constructions that rotates the radar. By not having any movable parts, the reliability and performance vastly outperforms the properties of rotating radars. For example, given the angular speed of the electronically steered antenna array, the antenna lobe can simultaneously keep track of several targets while also scanning the skies for new ones. This type of radar is an electronically steered antenna, or ESA.\autocite{web:navair02}
 
-		An ESA-antenna consists of many small antenna elements, or transmit/receive-modules. The signal's phase and amplitude are controlled individually for each TRM while other signal processing is common for groups of modules. It is therefore to one's advantage to create small antenna elements as well as small circuits controlling them. This can be done with monolithic microwave integrated circuits (or MMICs). MMICs are small, efficient and reliable, making them well-suited for radar applications.\autocite{stimson98}
+		An ESA-antenna consists of many small antenna elements, or transmit/receive-modules. The signal's phase and amplitude are controlled individually for each TRM while other types of signal processing is made for groups of modules. It is therefore to one's advantage to create small antenna elements as well as small circuits controlling them. This can be done with monolithic microwave integrated circuits (or MMICs). MMICs are small, efficient and reliable, making them well-suited for radar applications.\autocite{stimson98}
 
-		Older ESA's were usually passive (PESA); all TRMs operating at the same frequency and powered by a common source. If small groups of antenna elements are powered individually the array is active, an AESA. This gives the flexibility of being able to transmit over different frequencies at the same time and thus, amongst other things, decrease the likelihood of discovery.\autocites{oliner72}
+		Older ESA's were usually passive (PESA); all TRMs operating at the same frequency and powered by a common RF-source. If small groups of antenna elements are powered individually, the array is active, an AESA. This gives the flexibility of being able to transmit over different frequencies at the same time and thus, amongst other things, decrease the likelihood of discovery.\autocites{oliner72}
 
-		Common modern radars transmit at frequencies from \unit[1]{GHz} up to tens of GHz. Early digital sampling of the analogue signal enables more processing to be done in software, extending the radar's applications and utility. To perform analogue-to-digital conversion with today's technology, the frequency must be in the order of \unit[100]{MHz}. This is at least one order of magnitude less than the transmit frequencies.
+		Common modern radars transmit at frequencies from \unit[1]{GHz} up to tens of gigahertz. Early digital sampling of the analogue signal enables more processing to be done in software, extending the radar's applications and utility. To perform analogue-to-digital conversion with today's technology, the frequency must be in the order of \unit[100]{MHz}. This is at least one order of magnitude less than the transmit frequencies.
 
-		Figure \ref{fig:intro_fig} presents a usual setup of an AESA-system. The signal is received in a large number of TRM-modules where amplification and phase steering are performed. In the next step, the signal is prepared for AD-conversion by down-converting the frequency. In the third step, the signal is digitized and processed in software.
+		Figure \ref{fig:intro_fig} presents a common setup of an AESA-system. The signal is received in a large number of TRM-modules where amplification and phase steering are performed. In the next step, the signal is prepared for AD-conversion by down-converting the frequency. In the third step, the signal is digitized and processed in software.
 
 		In this thesis work, the first in a chain of necessary down-converters is designed on a GaAs MMIC. The chip is called multi-functional because it contains additional components such as amplifiers and variable attenuators. Due to the tailored performance with strict specifications and the inclusion of many components, the chip cannot be bought off the shelf. The main reason for implementing on an MMIC is the need for miniaturisation as it is important to start processing the signal as close to the antenna as possible.
 
@@ -22,39 +22,39 @@
 				\includegraphics[width=1.0\textwidth]{fig/introduction/exr}
 				\label{fig:introexr}
 			}
-			\caption[AESA receiver system.]{Schematic view of the AESA receiver system. \subref{fig:introreceiver} The signal is picked up by the antenna in the transmitter receiver module (TRM), processed in the exciter receiver subsystem (EXR) and finally converted to a digital signal in the DSP-unit, where digital beam forming is performed. \subref{fig:introexr} A detailed view of the EXR-unit. It contains a series of down-converters and filters. The down-converters are necessary to provide the analogue-to-digital converter with the correct frequency. This master's thesis covers the implementation of the first down-converter and a dynamic gain on an MMIC (components enclosed by a red dashed line). The chip is designed for the S band and contains image reject features. RF, LO and IF are explained in \nameref{ch:introduction_mixer} \ref{ch:introduction_mixer}.}\label{fig:intro_fig}
+			\caption[AESA receiver system.]{Schematic view of the AESA receiver system. \subref{fig:introreceiver} The signal is picked up by the antenna in the transmitter receiver module (TRM), processed in the exciter receiver subsystem (EXR) and finally converted to a digital signal in the DSP-unit, where a digital beam is formed. \subref{fig:introexr} A detailed view of the EXR-unit. It contains a series of down-converters and filters. The down-converters are necessary to provide the analogue-to-digital converter with the correct frequency. This master's thesis covers the implementation of the first down-converter and a dynamic gain on an MMIC (components enclosed by the dashed line). The chip is designed for the S band and contains image reject features. RF, LO and IF are explained in \nameref{ch:introduction_mixer} \ref{ch:introduction_mixer}.}\label{fig:intro_fig}
 		\end{figure}
 
 		%To perform analogue-to-digital conversion with today's technology, the frequency should preferably be at least one order of magnitude smaller than the carrier frequency (radio frequency or RF) of a radar which transmits/receives at \unit[3]{GHz}. In this thesis work the first in a chain of necessary down-converters will be designed on a GaAs MMIC.
 
 	\section{Design specifics}
-		As previously mentioned there is a need for a custom, very small, mixing circuit. Implementation as an integrated circuit is clearly beneficial because of the small size. In \autoref{app:specs} the full specification of the MMIC is listed. Most important are the demands on linearity, noise and gain. The gain is set to \unit[$\sim$10]{dB} with a \unit[$\pm$5]{dB} dynamic gain range. This means that the gain is variable and that the chip needs amplifiers and some means of controlling the gain. The linearity, measured using the input third-order intercept point, should be at least \unit[15]{dBm} at nominal gain. The noise figure should, for nominal gain, be less than \unit[15]{dB}. These quantities are explained later on in this chapter.
+		As previously mentioned, there is a need for a custom, very small, mixing circuit. Implementation as an integrated circuit is clearly beneficial because of the small size. In \autoref{app:specs} the full specification of the MMIC is listed. Most important are the demands on bandwidth, linearity, noise and gain. The gain is set to \unit[$\sim$10]{dB} with a \unit[$\pm$5]{dB} dynamic gain range. This means that the gain is variable and that the chip needs amplifiers with some means of controlling the gain. The linearity, simulated using the input third-order intercept point, should be at least \unit[15]{dBm} at nominal gain. The noise figure should, for nominal gain, be less than \unit[15]{dB}. These quantities are explained later on in this chapter.
 
 
 	\section{GaAs monolithic microwave integrated cir\-cuit}
 		\subsection{Properties}
 
-		MMICs offer miniaturisation of electric circuits and can be constructed with different materials having different properties. Gallium arsenide (GaAs) has been used as a semiconductor material since the 70's. When it was introduced, it was a minor revolution; the high electron mobility permitted frequencies in excess of \unit[200]{GHz} and greater breakdown voltages increased the power levels. GaAs circuits are less sensitive to heat compared to ordinary silicon semiconductor materials and offers good noise-performance.\autocite{robertson95} %page 10
+		MMICs offer miniaturisation of electric circuits and can be constructed with different materials having different properties. Gallium arsenide (GaAs) has been used as a semiconductor material since the 1970's. When it was introduced, it was a minor revolution; the high electron mobility permitted frequencies in excess of \unit[200]{GHz} and greater breakdown voltages increased the power levels. GaAs circuits are less sensitive to heat compared to ordinary silicon semiconductor materials and offers good noise performance.\autocite{robertson95} %page 10
 
 		\subsection{HEMT-technology}
-			The active components of MMICs are usually FETs and different processes offer different kinds of FETs.	The High Electron Mobility Transistor-, or HEMT-technology uses the quantum well created in the conduction band in the interaction between two semiconductors. The electrons in the well form a two-dimensional electron gas that can be used to form the channel region of the FET.\autocite{mimura80} The two semiconductor-materials usually must have the same lattice constants.
+			The active components of MMICs are usually FETs and different processes offer different kinds of FETs. The high electron mobility transistor-, or HEMT-technology uses the quantum well created in the conduction band of the interaction between two semiconductors. The electrons in the well form a two-dimensional electron gas that can be used to form the channel region of the FET.\autocite{mimura80} The two semiconductor materials usually must have the same lattice constants.
 
 			Pseudomorphic HEMTs, or pHEMTs, have a very thin second layer which allows that layer to "stretch" over the first layer. This circumvents the requirement of having the same lattice constant, allowing for greater band gap difference, which gives greater power handling capabilities.
 
 		\subsection{Foundry process}
-			Foundry processes differ, both in the size of components and in the performance features, such as power capability, noise, etc. The size of a process usually refers to the gate length in its active device.
+			Foundry processes differ, both in the size of components and in the performance features such as power capability, noise, etc. The size of a process usually refers to the gate length in its active device.
 
 			The two processes considered for this chip are PH25 and PPH25 from UMS. United Monolithic Semiconductors (UMS) is an MMIC fabrication plant in France. Both processes utilize pHEMT-technology and have a \unit[0.25]{\mum} gate length. The difference is that PPH25 (power pHEMT) allows higher power density while PH25 has better noise performance. Another thing to consider is that UMS holds test runs for PH25 (not for PPH25) which is a cheap way of verifying a design prior to large volume orders.
 
-			An evaluation is conducted to compare the MMIC performance for the two UMS processes. The results are found in \autoref{sec:processval} and they are based on the designs detailed in the report. From this comparison, PPH25 is chosen.
+			An evaluation is conducted to compare the MMIC performance of the two UMS processes. The results are found in \autoref{sec:processval} and they are based on the designs detailed in the report. From this comparison, PPH25 is chosen.
 
 	\section{Circuit simulations}
-		This project governs the design of the MMIC and does not include measurements made on an actual chip. All results documented are thus simulated results. The simulations are initially based on mathematical models of UMS' components. However, as the design matures the accuracy of these models becomes insufficient. Full electromagnetic (EM) simulations are therefore performed on all passive structures on the chip. The results in the report are all calculated using EM-simulations. More information on specifics regarding EM-simulations is found in \autoref{app:emsim}.
+		This project governs the design of the MMIC and does not include measurements made on an actual chip. All results documented are thus simulated results. The simulations are initially based on mathematical models of UMS' components. However, as the design matured, the accuracy of these models became insufficient. Full electromagnetic (EM) simulations are therefore performed on all passive structures on the chip. The results in the report are all based on EM-simulations, usless stated otherwise. More information on specifics regarding EM-simulations is found in \autoref{app:emsim}.
 
 	\section{Mixer principles}\label{ch:introduction_mixer}
 		\subsection{Mixing}
 
-			The mixer supplies the fundamental function of down- or up-converting a signal's frequency and is principally a simple component; it receives a radio signal and together with a local oscillator an intermediate frequency is created, as seen in \autoref{fig:mixerroughschematic}. The mixer utilizes the fact that multiplication of two signals creates a signal with new frequencies
+			The mixer supplies the fundamental function of down- or up-converting a signal's frequency and is principally a simple component; it receives a radio signal and together with a local oscillator, an intermediate frequency is created (\autoref{fig:mixerroughschematic}). The mixer utilizes the fact that multiplication of two signals creates a signal with new frequencies
 
 			\begin{align}\label{eq:simplemixer}
 			%	\sin(|\omega_1-\omega_2| t) &= \sin(\omega_1 t)\sin(\omega_2 t) \\
@@ -84,16 +84,16 @@
 					\includegraphics[width=0.5\textwidth]{fig/mixer/mixing_function_fft}
 					\label{fig:mixing_function_fft}
 				}
-				\caption{The resulting signals from multiplication of RF- and LO-signals. The IF-signal contains both the upper and the lower sidebands.}\label{fig:mixing_function}
+				\caption{The resulting signal from multiplication of RF- and LO-signals. The IF-signal contains both the upper and lower sidebands.}\label{fig:mixing_function}
 			\end{figure}
 
 		\subsection{Image rejection}
-			An incoming signal in the frequency band that converts to the same IF-frequency as the desired signal is called an image. Once this signal has been down-converted it becomes indistinguishable from the desired signal. To avoid this, the mixer has an image reject specification of \unit[30]{dBc}. This means that the conversion gain of the image should be at least \unit[30]{dB} lower than that of the desired band.
+			An incoming signal in the frequency band that converts to the same IF-frequency as the desired signal is called an image. Once this signal has been down-converted, it becomes indistinguishable from the desired signal. To avoid this, the mixer has an image reject specification of \unit[30]{dBc}. This means that the conversion gain of the image should be at least \unit[30]{dB} lower than that of the desired band.
 
 
 	\section{Intermodulation products}
 		\subsection{Linearity and intermodulation}
-			The operation of a mixer, or down-converter, should be as linear as possible. Linearity in the mixer ensures as few unwanted signals as possible arise from the mixing procedure. The frequencies of these spurious signals are calculated in the same manner as the down converted intermediate frequency:\autocite{bahl03}
+			The operation of a mixer should be as linear as possible. Linearity in the mixer ensures that as few unwanted signals as possible arise from the mixing procedure. The frequencies of these spurious signals are calculated in the same manner as the down converted intermediate frequency: \autocite{bahl03}
 
 			\begin{equation}\label{eq:spurs}
 				f_{mix} = |k_1f_1\pm k_2f_2 \pm ... \pm k_nf_n|
@@ -137,7 +137,7 @@
 %			\end{tabular}
 %			\end{table}
 
-			In order to find out which spurious frequencies are present, all low-order mixing products for the system have been calculated, using frequencies valid for the project (\autoref{tab:introsingletone}). %In the two-tone input two tones of equal amplitude, \unit[20]{MHz} apart, are fed as RF-signals.
+			In order to find which spurious frequencies are present, all low-order mixing products have been calculated, using frequencies valid for the project (\autoref{tab:introsingletone}). %In the two-tone input two tones of equal amplitude, \unit[20]{MHz} apart, are fed as RF-signals.
 			The order of intermodulation by convention only counts the sum of the coefficients of the RF-signals.
 		
 			\begin{table}[hbt!]
@@ -160,7 +160,7 @@
 				\end{tabular}
 			\end{table}
 
-			A similar calculation of mixing products using two-tone excitation results in more spurious frequencies. The frequencies are mixed according to $f_{mix} = mf_{RF1} + nf_{RF2} + pf_{LO}$, where $f_{RF1}$ and $f_{RF2}$ are placed some tenths of MHz apart. Of special interest are the of $m$ and $n$ low odd-order signals with a low-order LO ($p=1$), and in particular the third-order intermodulation product.
+			A similar calculation of mixing products using two-tone excitation results in more spurious frequencies. The frequencies are mixed according to $f_{mix} = mf_{RF1} + nf_{RF2} + pf_{LO}$, where $f_{RF1}$ and $f_{RF2}$ are placed some tenths of megahertz apart. Of special interest are the of $m$ and $n$ low odd-order signals with a low-order LO ($p=1$), and in particular the third-order intermodulation product.
 
 		\subsection{Intercept point} \label{sec:ip3}
 			Usually the third-order intermodulation products from multiple input signals cause most distortion. The third-order intercept point is an observable used to quantify the linearity in a component. Although it measures the third-order product in particular, it represents the overall linearity of a system.
@@ -186,18 +186,18 @@
 				I_T=\left ( \frac{1}{G_2I_1} + \frac{1}{I_2} \right )^{-1}
 			\end{equation}
 
-			$I_1$, $I_2$ and $I_T$ are the $IIP_3$ for the first component, second component and the two together, respectively. $G_2$ is the gain of the second device in the cascade. It is here evident that the order of the components is important for the total linearity.
+			where $I_1$, $I_2$ and $I_T$ are the $IIP_3$ for the first component, second component and the two together, respectively. $G_2$ is the gain of the second device in the cascade. It is here evident that the order of the components is important for the total linearity.
 
 		\subsection{Linearity simulations}
-			In order to simulate a mixer's $IIP_3$ a three-tone setup is required (LO and two input RF tones). Necessary simulation accuracy for all three tones and their mixing products is very high, too high for the simulation software Microwave Office to handle. In contrast to the simpler two-tone setup required for calculating $IIP_3$ in an amplifier, the result becomes unreliable.
+			In order to simulate a mixer's $IIP_3$, a three-tone setup is required (LO and two input RF tones). Necessary simulation accuracy for all three tones and their mixing products is very high, too high for the simulation software Microwave Office to handle. In contrast to the simpler two-tone setup required for calculating $IIP_3$ in an amplifier, the result becomes unreliable.
 
-			The theory that results in the rule of thumb $IIP_3=P_{1dB}+\unit[10]{dBm}$ is based on a power series expansion of the transfer characteristics. A simplification to the calculations is made to only consider the first three terms. This approximation has been empirically shown to work well with amplifiers. In mixers, there is however many more harmonics present and they cannot be as easily discarded. A quick look at different papers and commercial mixers show that $IIP_3$ can be anything from \unit[6]{dBm} to \unit[14]{dBm} higher than $P_{1dB}$.
+			The theory that results in the rule of thumb $IIP_3=P_{1dB}+\unit[10]{dBm}$ is based on a power series expansion of the transfer characteristics. A simplification to the calculations is made to only consider the first three terms. This approximation has been empirically shown to work well with amplifiers. In mixers, there are however more harmonics present and they cannot be as easily discarded. A quick look at different papers and commercial mixers show that $IIP_3$ can be anything from \unit[6]{dB} to \unit[14]{dB} higher than $P_{1dB}$.
 
 			This means that neither an estimate of $IIP_3$ from $P_{1dB}$ nor a simulation of $IIP_3$ directly are reliable methods for the mixer. The two combined gives the best hint available to a correct $IIP_3$ value.
 
 	\section{Noise}
 		\subsection{Noise sources}\label{sec:noise_thermal}
-			Thermal noise arises due to collisions between electrons. As temperature increases, the particles will move faster and collide more often, thus increasing the thermal noise. The mean-square thermal noise voltage generated in a resistance $R$ over a bandwidth $\Delta f$ is\autocite{bahl03}
+			Thermal noise arises due to collisions between electrons. As temperature increases, the particles move faster and collide more often, thus increasing the thermal noise. The mean-square thermal noise voltage generated in a resistance $R$ over a bandwidth $\Delta f$ is \autocite{bahl03}
 
 			\begin{equation}
 				< v^2_\text{thermal} > = 4k_BTR\Delta f
@@ -205,7 +205,8 @@
 
 			This type of noise is introduced in passive, resistive components such as resistors and inductors.
 
-			A second type of noise present in active structures such as the FETs is shot noise. Shot noise occurs when there are not enough electrons to successfully approximate the current as continuous. The statistical variations in the electron's speed result in the sum of all electrons having variations as well. The mean-square shot noise voltage for a current $i$, in a resistance $R$, is given by
+			A second type of noise present in active structures, such as FETs is shot noise. Shot noise occurs when there are not enough electrons to successfully approximate the current as continuous. The statistical variations in the electrons' speed result in the sum of all electrons having variations as well. The mean-square shot noise voltage for a current $i$, in a resistance $R$, is given by
+			
 			\begin{equation}
 				< v^2_\text{shot} > = 2q_eiR^2\Delta f
 			\end{equation}
@@ -213,7 +214,7 @@
 		\subsection{Noise in a system}
 			When designing electrical circuits in general and receivers in particular, the noise must be considered at every step. Without proper design, it will be problematic to differentiate signals from the background noise. Noise has all kinds of origins; it is part of the original transmission and it is introduced while processing the signal.
 
-			An important measure when dealing with noise is the signal to noise ratio, or SNR, which is the ratio between the useful signal and the underlying noise. It is defined as
+			An important measure when dealing with noise is the signal to noise ratio, or SNR, which is the ratio between the desired signal and the underlying noise. It is defined as
 			\begin{equation}
 					\text{SNR}=20\log \left(\frac{ A_\text{signal} }{ A_\text{noise} }\right)
 			\end{equation}
@@ -233,20 +234,20 @@
 			\end{figure}
 
 		\subsection{Noise figure}
-			The noise figure, or $\nf$, measures how much noise a sub circuit introduces. Introducing noise is inevitable and in order to minimize the noise, it is important to amplify the signal as early as possible and thereby raising the signal higher above the background noise. Otherwise, every subsequent attenuation of the signal will raise the noise figure just as much. $\nf$ is defined as
+			The noise figure, or $\nf$, measures how much noise a sub-circuit introduces. Introducing noise is inevitable and in order to minimize the noise, it is important to amplify the signal as early as possible, thereby raising the signal higher above the background noise. Otherwise, every subsequent attenuation of the signal will raise the noise figure just as much. $\nf$ is defined as
 
 			\begin{equation}
 				\nf=10\log \left(\frac{ \text{SNR}_\text{in} }{ \text{SNR}_\text{out} }\right) = \text{SNR}_\text{in,dB} -\text{SNR}_\text{out,dB}
 			\end{equation}
 
-			For example, in Figure\autoref{fig:intro_noise_example}, the SNR is \unit[67]{dB}. If the same ratio were to be \unit[47]{dB} after some passing through some component as in Figure\autoref{fig:intro_noise_example_2}, the noise figure for this component would be \unit[20]{dB}.
+			For example, in Figure\autoref{fig:intro_noise_example}, the SNR is \unit[67]{dB}. If the same ratio were to be \unit[47]{dB} after passing through a component as in Figure\autoref{fig:intro_noise_example_2}, the noise figure for this component would be \unit[20]{dB}.
 
 
 		\subsection{Cascaded components}
 			The total noise figure (\nf) for a system with two components is given by \autocite{pozar90}
 
-			\begin{equation}
+			\begin{equation}\label{eq:cascnoise}
 				\nf_T=\nf_1+\frac{1}{G_1}(\nf_2-1)
 			\end{equation}
 
-			where $\nf_1$, $\nf_2$ and $\nf_T$ are the noise figures of the first component, the second component and the total system respectively. $G_1$ is the gain of the first component. Just as for $IIP_3$ the order of the components plays a big part of the final noise figure. In the next chapter different permutations of components are analysed for the purpose of finding which components and what order give the best trade-off between noise and linearity.
+			where $\nf_1$, $\nf_2$ and $\nf_T$ are the noise figures of the first component, the second component and the total system, respectively. $G_1$ is the gain of the first component. Just as for $IIP_3$, the order of the components plays a big part of the final noise figure. In the next chapter different permutations of components are analysed for the purpose of finding which components and what order give the best trade-off between noise and linearity.
