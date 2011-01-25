@@ -77,7 +77,7 @@
 
 
 		\subsubsection{FET-configuration and matching networks}\label{sec:lo_fet_config}
-			Large FETs are used for linear operation linear operation which is to be avoided for the compression technique to work.\autocite{maas98} In \autoref{fig:FET_size_S22}, the drain impedance for different FET-sizes is simulated. It shows that a smaller FET such as \unit[4$\times$25]{\mum} is a better conjugate match for the mixer since only reactive matching networks would be needed. However, such a small FET does not provide enough gain. Therefore a FET-size of \unit[4$\times$50]{\mum} is chosen.
+			Large FETs are used for linear operation, which is to be avoided for the compression technique to work.\autocite{maas98} In \autoref{fig:FET_size_S22}, the drain impedance for different FET-sizes is simulated. It shows that a smaller FET such as \unit[4$\times$25]{\mum} is a better conjugate match for the mixer since only reactive matching networks would be needed. However, such a small FET does not provide enough gain. Therefore a FET-size of \unit[4$\times$50]{\mum} is chosen.
 
 	The input matching network consists of an L-shaped inductor-inductor network and a shunt-resistance. The length of the source is chosen such that input reflections are small. The output matching network needs to match the reactive gate of the mixing FET. This is done with a shunt capacitance and an inductance in series. The inductance to ground keeps the gate of the mixing FET at $v_{DC}=\unit[0]{V}$.
 			\begin{figure}[hbt!]
