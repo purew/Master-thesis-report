@@ -1,9 +1,9 @@
 %!PS-Adobe-3.0 EPSF-3.0
 %%Title: fet-illustrative.eps
 %%Creator: XCircuit v3.6 rev135
-%%CreationDate: Thu Dec 30 15:39:47 2010
+%%CreationDate: Tue Jan 25 09:38:37 2011
 %%Pages: 1
-%%BoundingBox: 68 68 206 139
+%%BoundingBox: 68 68 206 153
 %%DocumentNeededResources: font Helvetica Times-Roman 
 %%EndComments
 %%BeginProlog
@@ -183,6 +183,26 @@ mark @in {/Helvetica cf} ctmk 23 0 1.000 0 0 pinlabel
 endgate
 } def
 
+/generic::arrowhead {
+% nonetwork
+begingate
+8 -28 beginpath
+3 -18 3 -15 0 0 curveto
+-3 -15 -3 -18 -8 -28 curveto
+-2 -26 2 -26 8 -28 curveto
+249 
+1.000 endpath
+endgate
+} def
+
+/generic::arrow {
+% nonetwork
+begingate
+1 0.800 0 -40 0 20 2 polygon
+1.000 0 0 40 generic::arrowhead
+endgate
+} def
+
 
 %%EndSetup
 
@@ -190,15 +210,21 @@ endgate
 %%PageOrientation: Portrait
 /pgsave save def bop
 1.0000 inchscale
-2.6000 setlinewidth 464 144 translate
+2.6000 setlinewidth 464 164 translate
 
 1.000 0 -80 128 analog::nmos
 (Gate) {/Helvetica cf} 2 16 0 1.000 -272 128 label
-(Source) {/Helvetica cf} 2 16 0 1.000 -48 48 label
-(Drain) {/Helvetica cf} 2 16 0 1.000 -48 192 label
+(Source) {/Helvetica cf} 2 16 0 1.000 -48 32 label
+(Drain) {/Helvetica cf} 2 16 0 1.000 -48 208 label
 1.000 0 -160 128 generic::tap
 1.000 90 -80 208 generic::tap
 1.000 270 -80 48 generic::tap
+1.000 180 -32 128 generic::arrow
+(i) {/Helvetica cf} 2 16 0 1.000 -16 128 label
+(ds) {/Helvetica cf} 2 16 0 0.700 0 112 label
+1.000 135 -160 64 generic::arrow
+{/Helvetica 1.000 cf} (gs) {/Helvetica cf} 3 16 0 0.700 -192 32 label
+(v) {/Helvetica cf} 2 16 0 1.000 -208 48 label
 pgsave restore showpage
 
 %%Trailer
