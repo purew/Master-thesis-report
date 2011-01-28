@@ -139,7 +139,7 @@
 
 			In order to find which spurious frequencies are present, all low-order mixing products have been calculated, using frequencies valid for the project (\autoref{tab:introsingletone}). %In the two-tone input two tones of equal amplitude, \unit[20]{MHz} apart, are fed as RF-signals.
 			The order of intermodulation by convention only counts the sum of the coefficients of the RF-signals.
-		
+
 			\begin{table}[hbt!]
 				\caption[Single-tone spurious signals.]{Spurious signal frequencies, within \unit[1.5]{GHz} of the IF, originating from single-tone excitation. The frequencies are mixed according to $f_{mix} = mf_{RF} + nf_{LO}$ and the orders are $O=|m|$. $ f_{RF}=\unit[3.2]{GHz}$ and $ f_{LO}=\unit[5.34]{GHz}$.}
 				\label{tab:introsingletone}
@@ -206,7 +206,7 @@
 			This type of noise is introduced in passive, resistive components such as resistors and inductors.
 
 			A second type of noise present in active structures, such as FETs is shot noise. Shot noise occurs when there are not enough electrons to successfully approximate the current as continuous. The statistical variations in the electrons' speed result in the sum of all electrons having variations as well. The mean-square shot noise voltage for a current $i$, in a resistance $R$, is given by
-			
+
 			\begin{equation}
 				< v^2_\text{shot} > = 2q_eiR^2\Delta f
 			\end{equation}
@@ -215,7 +215,7 @@
 			When designing electrical circuits in general and receivers in particular, the noise must be considered at every step. Without proper design, it will be problematic to differentiate signals from the background noise. Noise has all kinds of origins; it is part of the original transmission and it is introduced while processing the signal.
 
 			An important measure when dealing with noise is the signal to noise ratio, or SNR, which is the ratio between the desired signal and the underlying noise. It is defined as
-			\begin{equation}
+			\begin{equation}\label{sec:eq:cascnoise}
 					\text{SNR}=20\log \left(\frac{ A_\text{signal} }{ A_\text{noise} }\right)
 			\end{equation}
 			where $A$ is the amplitude of the signal. In \autoref{fig:noise_example}, examples with different SNR are shown.

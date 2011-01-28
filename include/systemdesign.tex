@@ -18,7 +18,7 @@
 			\centering
 			\begin{tabular}{ l l l l } \toprule
 				& Mixer & Amplifier & Attenuators \\\midrule
-				Gain & \unit[-8]{dB} & $\unit[<13]{dB}$ & \unit[-2--12]{dB} \\
+				Gain & \unit[-8]{dB} & $\unit[<13]{dB}$ & \unit[-2-- -12]{dB} \\
 				$\nf$ & \unit[8]{dB} & \unit[1--2]{dB} & \unit[2--12]{dB} \\
 				$IIP_3$ & \unit[20--27]{dBm} & \unit[14--22]{dBm} & \unit[30]{dBm} \\\bottomrule
 			\end{tabular}
@@ -34,7 +34,7 @@
 		The purpose of the budget analysis is to estimate the performance of the MMIC based on the estimates made of each individual component. With the noise target $\nf<\unit[12]{dB}$ and linearity target $IIP_3>\unit[17]{dBm}$, it is evident that the priority is high linearity and that the signal chain thus needs to start with an attenuating device. All components placed before the mixer in the signal path need to have a \unit[0.5]{GHz} bandwidth while components placed after only need performance for a \unit[20]{MHz} narrow band. Estimates of full chip performance are made for some different component permutations at different gain states. This way, the effect on the performance due to different gain settings is taken into account.
 
 		The performance of a chip layout starting out with the gain block (\autoref{tab:confper2}) has two inherent problems. The first is that all components prior to the mixer must be wideband and the second is that the entire chip performance becomes sensitive to the gain setting (compare with \autoref{tab:confper1}). Due to these, only chip layouts starting out with the mixer are considered feasible. Also, if the mixer is placed first, there are possibilities to integrate the filter with the input networks existing in most mixer designs.
-		
+
 		\begin{table}[hpt!]
 			\caption[Estimated performance of chip setup 2.]{Estimated performance of chip setup 2. The order of the components is: Filter, attenuators, amplifier, mixer and amplifier.}
 			\label{tab:confper2}
@@ -60,7 +60,7 @@
 				$IIP_3$ & \unit[18.5]{dBm} & \unit[16.4]{dBm} & \unit[19.4]{dBm} \\\bottomrule
 			\end{tabular}
 		\end{table}
-		
+
 		\begin{table}[hpt!]
 			\caption[Estimated performance of chip setup 3.]{Estimated performance of chip setup 3. The order of the components is: Filter, mixer, amplifier, amplifier and attenuators.}
 			\label{tab:confper3}
