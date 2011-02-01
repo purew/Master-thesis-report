@@ -43,6 +43,13 @@
 %\usepackage{txfonts} % Screws up all the equations, using upgreek for straight \mu:s instead
 \usepackage{upgreek}
 
+\usepackage{eso-pic}
+%\usepackage{lpic}
+
+\usepackage[strict]{changepage}
+
+\usepackage{fancyhdr}
+
 % Packages that are not crucial may be put in here to speed things up.
 % (Ie, packages dealing only with aesthetics
 \ifdefined\generatefull
@@ -156,3 +163,30 @@ pdftex]{hyperref}
 	\newpage
 	}
 }
+
+% Fancyheader shortcuts (for Chalmers)
+\newcommand{\setdefaulthdr}{%
+\fancyhead[L]{\slshape \rightmark}%
+%\fancyhead[R]{\slshape \leftmark}%
+\fancyhead[R]{}%
+\fancyfoot[C]{\thepage}%
+}
+\newcommand{\setspecialhdr}{%
+\fancyhead[L]{ }%
+\fancyhead[R]{\slshape \leftmark}%
+\fancyfoot[C]{\thepage}%
+}
+
+% Commands for placing pictures in the Chalmers-version of the report
+\newcommand{\backgroundpic}[3]{%
+	\put(#1,#2){
+		\parbox[b][\paperheight]{\paperwidth}{%
+			\centering
+			\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{#3}
+			\vfill
+}}}
+\newcommand{\backgroundpicp}[4]{%
+	\put(#1,#2){
+		\parbox[\paperwidth]{#4}{%
+			\includegraphics[width=#4]{#3}
+}}}

@@ -1,9 +1,18 @@
 % Compile with:
 %		pdflatex --shell-escape filename
-%\documentclass[10pt,a4paper]{scrartcl}
-%\documentclass[10pt,a4paper]{report}
-%\documentclass[english,twoside,notitlepage,draft]{reportsaab} % No figures - fast
-\documentclass[english,twoside,notitlepage]{reportsaab}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Select to have report for SAAB or Chalmers
+\def\saab{true}
+
+\ifdefined\saab
+	% Use template for the SAAB-report
+	\documentclass[english,twoside,notitlepage]{reportsaab} % Full report
+	%\documentclass[english,twoside,notitlepage,draft]{reportsaab} % No figures - faster
+\else
+	% Use template for the Chalmers-report
+	\documentclass[a4paper]{report}
+\fi
 
 % Optional resolution usage:
 %\opt{res300}{\includegraphics[width=200pt]{fig/introduction/300/figur}}
@@ -20,12 +29,24 @@
 \begin{document}
 
 	% Title page, abstract and foreword
-	\pagenumbering{arabic}
-	\setcounter{page}{1}
+	\ifdefined\saab
+		\pagenumbering{arabic}
+		\setcounter{page}{1}
+	\fi
+	
 	\input{include/titlepageabstract}
 
 	% Table of contents
 	\newpage
+	
+	\ifdefined\saab
+	\else
+		\pagenumbering{roman}
+		\setcounter{page}{1}
+		\pagestyle{fancy}
+		\setspecialhdr
+	\fi
+	
 	%\pagestyle{fancy}
 	%\setspecialhdr
 	\tableofcontents
@@ -36,7 +57,13 @@
 
 	% Main body
 	\newpage
-	%\setdefaulthdr
+	
+	\ifdefined\saab
+	\else
+		\setdefaulthdr
+		\pagenumbering{arabic}
+		\setcounter{page}{1}
+	\fi
 
 	\settocdepth{section}
 	\cleardoublepage
