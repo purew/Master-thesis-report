@@ -4,7 +4,7 @@
 
 	\section{Introduction}
 		\subsection{Function}
-			The purpose of an amplifier is to amplify electric signals. In a radar receiver setup the amplifier is often, after a limiter and a filter, the first element an incoming signal sees. Any degradation of the signal's power before the first amplification increases the noise (see \autoref{fig:noise_example}). The main goal of such an amplifier is to provide gain without adding noise and is called an LNA (low noise amplifier).
+			The purpose of an amplifier is to amplify electric signals. In a radar receiver setup the amplifier is often, after a limiter and a filter, the first element an incoming signal sees. Any degradation of the signal's power before the first amplification increases the noise (see \autoref{fig:noise_example}). The main goal of such an amplifier is therefore to provide gain without adding noise and is called an LNA (low noise amplifier).
 
 			The last amplifier in a transmitter-setup is more focused on providing as much gain and output power as possible without consuming too much power. For most amplifiers it is also of concern to operate linearly. This is measured with $IIP3$ and $P_{1dB}$ as explained in \autoref{sec:ip3}.
 
@@ -46,7 +46,7 @@
 
 	\section{Constant power LO-amplifier}\label{sec:lo_amp}
 		\subsection{Introduction}
-			The input LO-signal is specified to \unit[-5--0]{dBm} and there is therefore a need to amplify this signal. The purpose of the amplifier is to provide a high and constant input power to the mixer, not sensitive to fluctuations of the input LO-signal. This is achieved by operating the amplifier in compression so that the mixer always sees the same LO. Also, by running the amplifier in compression, i.e. outputting a square-waved pulse, the mixer will switch faster between the on- and off-states, behaving more like an ideal switch. This results in a more linear mixer as explained in \autoref{sec:mixer_lodrive}.\autocite{vice03} %The LO-amplifier is matched against the mixer which is a highly reactive load.
+			The input LO-signal is specified to \unit[-5--0]{dBm} and there is therefore a need to amplify this signal. The purpose of the LO-amplifier is to provide a high and constant input power to the mixer, not sensitive to fluctuations of the input LO-signal. This is achieved by operating the amplifier in compression so that the mixer always sees the same LO. Also, by running the amplifier in compression, i.e. outputting a square-waved pulse, the mixer will switch faster between the on- and off-states, behaving more like an ideal switch. This results in a more linear mixer as explained in \autoref{sec:mixer_lodrive}.\autocite{vice03} %The LO-amplifier is matched against the mixer which is a highly reactive load.
 
 
 

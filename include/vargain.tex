@@ -72,7 +72,7 @@
 
 	\section{Multiple attenuators}
 
-		Several techniques are available for combining attenuators to achieve a spectrum of discrete points. Attenuators can be connected in parallel or in series. A parallel connection results in a smaller total loss when all attenuators are inactive, i.e. when maximum gain is sought. This is because of the inherent drain-source resistance in the transistors used for overriding the attenuators. When connecting attenuators in parallel, the total loss is smaller in their inactive state but there are fewer possible states of attenuation.
+		Several techniques are available for combining attenuators to achieve a range of discrete states. Attenuators can be connected in parallel or in series. A parallel connection results in a smaller total loss when all attenuators are inactive, i.e. when maximum gain is sought. This is because of the inherent drain-source resistance in the transistors used for overriding the attenuators. When connecting attenuators in parallel, the total loss is smaller in their inactive state but there are fewer possible states of attenuation.
 
 		As maximizing the number of controlling bits and thereby saving chip-size is deemed important, it is decided to use a series design of the attenuators. Furthermore, a resolution of \unit[1.5]{dB} and a total of \unit[3]{bits} suffices. This gives $2^3=8$ steps and a maximum attenuation of $1.5+3+6=\unit[10.5]{dB}$.
 
@@ -91,7 +91,7 @@ The entire attenuator circuit must be properly biased. There are therefore DC-bl
 		
 		When simulating the attenuators, there is the option of using a linear model of the switching FET called PPH25SSW or the non-linear cold FET called PPH25NCF. The non-linear models are more powerful in that they can be used in non-linear simulations but the linear switching FET  models represent linear operation better. The simulations are performed with PPH25SSW as far as possible.		
 		
-		The attenuation values and reflection coefficients for all attenuators are displayed in \autoref{tab:VarGainData}. All attenuation states, including spread are seen in \autoref{fig:All_attenuators_spread}. The compression point, $P_{1dB}$, for the complete variable-gain-circuit (three attenuators in series) is calculated to \unit[22]{dB} using PPH25NCF when all attenuators are in their inactive state. All other states result in higher $P_{1dB}$.
+		The attenuation values and reflection coefficients for all attenuators are displayed in \autoref{tab:VarGainData}. All attenuation states, including spread are seen in \autoref{fig:All_attenuators_spread}. The compression point, $P_{1dB}$, for the complete variable-gain-circuit (three attenuators in series) is calculated to \unit[22]{dBm} using PPH25NCF when all attenuators are in their inactive state. All other states result in higher $P_{1dB}$.
 	
 	
 	

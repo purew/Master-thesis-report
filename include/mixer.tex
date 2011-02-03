@@ -58,9 +58,9 @@
 			Diode mixers are realized with Schottky diodes because of their switching speed. Today diode mixers are more prevalent for high frequencies, where FETs are less potent. An advantage with diode mixers is that they do not need a bias voltage.
 
 		\subsection{FET mixers}\label{sec:fet_mixers}
-			FET mixers generally have lower noise and higher gain compared to diode mixers. MMIC processes are optimized for FET-structures, not diodes. A major advantage with FET-mixers is the inherent isolation between the LO and the IF provided by the FET. There are in general two approaches to designing a FET-mixer -- active or resistive mixer.
+			FET mixers generally have lower noise and higher gain compared to diode mixers. Furthermore, MMIC processes are optimized for FET-structures, not diodes. A major advantage with FET-mixers is the possibility for inherent isolation between the LO and the IF provided by the FET. There are in general two approaches to designing a FET-mixer -- active or resistive mixer.
 
-			Active FET mixers are biased like an amplifying element and thus have a positive conversion gain while resistive mixers are biased with zero $v_{ds}$ and $v_{gs}$ below pinch-off such that the drain-source resistance is linear to the applied gate-voltage. When considering linearity, resistive mixers are superior.\autocites{maas92,maas98}
+			In active FET mixers, the transistor is biased like an amplifying element and may thus have a positive conversion gain while resistive mixers are biased with zero $v_{ds}$ and $v_{gs}$ below pinch-off such that the drain-source resistance is linear to the applied gate-voltage. When considering linearity, resistive mixers are superior.\autocites{maas92,maas98}
 
 		\subsection{Conclusion}
 			Almost all MMIC mixers designed for the S band are today FET mixers. Diodes are common only when designing mixers with frequencies at least one order of magnitude higher or when using discrete components. Since high linearity is important, a FET resistive mixer is designed. To decide whether to implement it as single-ended or as singly balanced, both types are initially designed with ideal components. The single-balanced mixer is eventually disregarded due to its complexity and to the fact that the single-ended mixer performs adequately. The comparison is detailed in \autoref{sec:endvsbal}.
@@ -72,7 +72,7 @@
 			 A shunt inductance is placed at the gate to the mixing FET in order to ensure that the FET bias point remains fixed at high LO power. The inductance is part of the matching network in the LO-amplifier.
 
 		\subsection{Diplexer}
-			The overall simplicity of the FET resistive mixer makes the diplexer the most sophisticated part and also crucial to the performance (\autoref{fig:mixerDiplexer}). Between the RF input and the mixer FET, the network has to band-pass filter the signal in order to both inhibit the IF-signal from leaking out and to suppress the radar image at $f_{image}=f_{LO}+f_{IF}$. Once the image frequency has passed this filter, it will mix down to $f_{IF}$ and from there be indistinguishable from the original signal:
+			The overall simplicity of the FET resistive mixer makes the diplexer the most sophisticated part and also crucial to the performance (\autoref{fig:mixerDiplexer}). Between the RF input and the mixer FET, the network has to band-pass filter the RF-signal in order to both inhibit the IF-signal from leaking out and to suppress the radar signals at the image frequency $f_{image}=f_{LO}+f_{IF}$. Once the image frequency has passed this filter, it will mix down to $f_{IF}$ and from there be indistinguishable from the original signal:
 
 			\begin{equation}
 				|f_{image}\pm f_{LO}| = |f_{LO}+f_{IF}\pm f_{LO}| = \left \{
@@ -86,7 +86,7 @@
 			\begin{figure}[hbt!]
 				\centering
 				\includegraphics[width=0.5\textwidth]{fig/mixer/diplexer}
-				\caption[Mixer diplexer signal path]{This diplexer consists of a low-pass filter and a band-pass filter. The signal is band-pass filtered, mixed at the FET and then low-pass filtered. Both filters are designed to match the signal to the port at the appropriate frequencies.}\label{fig:mixerDiplexer}
+				\caption[Mixer diplexer signal path]{This diplexer consists of a low-pass filter and a band-pass filter. The receieved RF-signal is band-pass filtered, mixed at the FET and then low-pass filtered. Both filters are designed to match the signal to the port at the appropriate frequencies.}\label{fig:mixerDiplexer}
 			\end{figure}
 
 			Between the mixer FET and the IF output, the diplexer must low-pass filter to reject any signals above the down-mixed lower sideband frequency at $f_{IF}$. Additional filtering is done in the subsequent amplifiers.
@@ -211,6 +211,6 @@
 	\section{Discussion}
 		As discussed in the topology study, there are a few sophisticated designs that may give very good mixer performance. The achieved performance and the simple design of the single-ended resistive FET mixer is however undeniable. Not only does this save design effort but it also frees space on the chip, thereby saving money in yield and wafer costs. It is not surprising that the industry in general chooses this topology for high linearity mixers at these frequencies.\autocite{web:hittite}
 
-		The noise figure in the mixer is considered equal to the losses. This is supported by \citeauthor{maas05}, for a single-sideband mixer as in this case.\autocite{maas05} There are, however, more advanced ways to take noise generated in the mixer into account.\autocite{kundert07}
+		The noise figure in the mixer is considered equal to the losses. This is supported by \citeauthor{maas05}, for a single-sideband mixer as in this case\autocite{maas05}. There are, however, more advanced ways to take noise generated in the mixer into account\autocite{kundert07}.
 
 		Low accuracy three-tone $IIP_3$ simulations yield a result \unit[2--3]{dB} higher than the estimates made from $P_{1dB}$. Due to their uncertainty, these results are not reported. They are only mentioned here for reference.

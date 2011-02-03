@@ -10,7 +10,7 @@
 		Naturally there is a minimum of components necessary to achieve the specified performance. The mixing circuit needs a dedicated amplifier to amplify the LO-signal to an appropriate power level. Unless an image reject mixer is used, there is a need for a filter to remove the image frequencies which taint the signal. The RF-to-IF chain needs amplifiers and a variable attenuator block. The nominal chip gain is set to be \unit[8--10]{dB} with a $\unit[\pm 5]{dB}$ gain control. This means that the signal must be amplified at least \unit[13]{dB} plus losses in the entire circuit. If the losses in the mixer and the attenuator block are \unit[10]{dB}, then the gain of the amplifiers must be at least \unit[23]{dB}.
 
 	\section{Component performance}
-		To estimate the performance of different layouts, typical performances of the individual components are needed. However, as this is an analysis made prior to the design, the performances are only estimated. In \autoref{tab:compperformance} the estimates are presented.
+		To estimate the performance of different chip configurations, typical performances of the individual components are needed. However, as this is an analysis made prior to the design, the performances are only estimated. In \autoref{tab:compperformance} the estimates are presented.
 
 		\begin{table}[hbt!]
 			\caption[Estimated performance of chip components.]{Estimated performance of the chip's components.}
@@ -35,8 +35,23 @@
 
 		The performance of a chip layout starting out with the gain block (\autoref{tab:confper2}) has two inherent problems. The first is that all components prior to the mixer must be wideband and the second is that the entire chip performance becomes sensitive to the gain setting (compare with \autoref{tab:confper1}). Due to these, only chip layouts starting out with the mixer are considered feasible. Also, if the mixer is placed first, there are possibilities to integrate the filter with the input networks existing in most mixer designs.
 
+
 		\begin{table}[hpt!]
-			\caption[Estimated performance of chip setup 2.]{Estimated performance of chip setup 2. The order of the components is: Filter, attenuators, amplifier, mixer and amplifier.}
+			\caption[Estimated performance of setup 1.]{Estimated performance of chip setup 1. The order of the components is: Filter, mixer, amplifier, attenuators and amplifier.}
+			\label{tab:confper1}
+			\centering
+			\begin{tabular}{ l l l l }
+				\multicolumn{4}{c}{\includegraphics[width=0.6\textwidth]{fig/system/sys1}} \\\toprule
+				& Nominal gain & Gain: \unit[+5]{dB} & Gain: \unit[-5]{dB} \\\midrule
+				Gain & \unit[9]{dB} & \unit[14]{dB} & \unit[4]{dB} \\
+				$\nf$ & \unit[10.7]{dB} & \unit[10.0]{dB} & \unit[12.4]{dB} \\
+				$IIP_3$ & \unit[18.5]{dBm} & \unit[16.4]{dBm} & \unit[19.4]{dBm} \\\bottomrule
+			\end{tabular}
+		\end{table}
+
+
+		\begin{table}[hpt!]
+			\caption[Estimated performance of setup 2.]{Estimated performance of chip setup 2. The order of the components is: Filter, attenuators, amplifier, mixer and amplifier.}
 			\label{tab:confper2}
 			\centering
 			\begin{tabular}{ l l l l }
@@ -49,20 +64,7 @@
 		\end{table}
 
 		\begin{table}[hpt!]
-			\caption[Estimated performance of chip setup 1.]{Estimated performance of chip setup 1. The order of the components is: Filter, mixer, amplifier, attenuators and amplifier.}
-			\label{tab:confper1}
-			\centering
-			\begin{tabular}{ l l l l }
-				\multicolumn{4}{c}{\includegraphics[width=0.6\textwidth]{fig/system/sys1}} \\\toprule
-				& Nominal gain & Gain: \unit[+5]{dB} & Gain: \unit[-5]{dB} \\\midrule
-				Gain & \unit[9]{dB} & \unit[14]{dB} & \unit[4]{dB} \\
-				$\nf$ & \unit[10.7]{dB} & \unit[10.0]{dB} & \unit[12.4]{dB} \\
-				$IIP_3$ & \unit[18.5]{dBm} & \unit[16.4]{dBm} & \unit[19.4]{dBm} \\\bottomrule
-			\end{tabular}
-		\end{table}
-
-		\begin{table}[hpt!]
-			\caption[Estimated performance of chip setup 3.]{Estimated performance of chip setup 3. The order of the components is: Filter, mixer, amplifier, amplifier and attenuators.}
+			\caption[Estimated performance of setup 3.]{Estimated performance of chip setup 3. The order of the components is: Filter, mixer, amplifier, amplifier and attenuators.}
 			\label{tab:confper3}
 			\centering
 			\begin{tabular}{ l l l l }
@@ -98,19 +100,18 @@
 
 		In \autoref{ch:vargain} are the design and results of a variable attenuator block explained. This block is needed to control the chip gain.
 
-	\newpage
-	\section{Comparison to final result}
-		The figures above are based on prior estimates. \autoref{tab:confper1final} lists the results achieved with the layout in \autoref{tab:confper1} and shows a good agreement.
-
-		\begin{table}[hpt!]
-			\caption[Achieved simulated performance with chip setup 1.]{Achieved simulated performance with chip setup 1. The results are in agreement with the prior estimates detailed in \autoref{tab:confper1}.}
-			\label{tab:confper1final}
-			\centering
-			\begin{tabular}{ l l l l }
-				\multicolumn{4}{c}{\includegraphics[width=0.6\textwidth]{fig/system/sys1}} \\\toprule
-				& Nominal gain & Gain: \unit[+4.4]{dB} & Gain: \unit[-6]{dB} \\\midrule
-				Gain & \unit[10.6]{dB} & \unit[15.0]{dB} & \unit[4.6]{dB} \\
-				$\nf$ & \unit[11]{dB} & \unit[10]{dB} & \unit[13]{dB} \\
-				$IIP_3$ & \unit[20]{dBm} & \unit[17]{dBm} & \unit[21]{dBm}  \\\bottomrule
-			\end{tabular}
-		\end{table}
+	%\newpage
+%	\section{Comparison to final result}
+%		The figures above are based on prior estimates. \autoref{tab:confper1final} lists the results achieved with the layout in \autoref{tab:confper1} and shows a good agreement.
+%		\begin{table}[hpt!]
+%			\caption[Achieved simulated performance with chip setup 1.]{Achieved simulated performance with chip setup 1. The results are in agreement with the prior estimates detailed in \autoref{tab:confper1}.}
+%			\label{tab:confper1final}
+%			\centering
+%			\begin{tabular}{ l l l l }
+%				\multicolumn{4}{c}{\includegraphics[width=0.6\textwidth]{fig/system/sys1}} \\\toprule
+%				& Nominal gain & Gain: \unit[+4.4]{dB} & Gain: \unit[-6]{dB} \\\midrule
+%				Gain & \unit[10.6]{dB} & \unit[15.0]{dB} & \unit[4.6]{dB} \\
+%				$\nf$ & \unit[11]{dB} & \unit[10]{dB} & \unit[13]{dB} \\
+%				$IIP_3$ & \unit[20]{dBm} & \unit[17]{dBm} & \unit[21]{dBm}  \\\bottomrule
+%			\end{tabular}
+%		\end{table}
